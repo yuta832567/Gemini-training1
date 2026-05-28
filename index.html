@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini研修 活用ガイド｜株式会社ガードナー様</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--bg2:#f8f8f6;--text:#1a1a1a;--text2:#555;--text3:#999;--accent:#4338ca;--accent-l:#eef2ff;--green:#15803d;--green-bg:#f0fdf4;--blue:#1d4ed8;--blue-bg:#eff6ff;--amber:#b45309;--amber-bg:#fffbeb;--red:#b91c1c;--red-bg:#fef2f2;--border:#e5e5e5;--r:8px;--rl:12px;--f:'Noto Sans JP',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--text);background:var(--bg);line-height:1.8;font-size:15px;-webkit-font-smoothing:antialiased}
+.c{max-width:820px;margin:0 auto;padding:0 24px}
+
+.hdr{padding:40px 0 24px;border-bottom:1px solid var(--border)}
+.hdr-t{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--accent);background:var(--accent-l);padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.hdr h1{font-size:22px;font-weight:700;line-height:1.5;margin-bottom:8px}
+.hdr p{font-size:14px;color:var(--text2);line-height:1.8;max-width:640px}
+.env{display:inline-block;margin-top:10px;font-size:12px;color:var(--amber);background:var(--amber-bg);padding:4px 12px;border-radius:6px}
+
+.tab-hint{padding:14px 0 8px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--accent);font-weight:500;animation:bounce 2s ease-in-out infinite}
+.tab-hint::before{content:'▼';font-size:10px}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
+.ttabs{display:flex;gap:4px;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;background:var(--bg);backdrop-filter:blur(6px);margin:0;padding:0;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.ttab{flex:1;text-align:center;padding:14px 8px 12px;font-size:13px;font-weight:600;color:var(--text3);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;position:relative}
+.ttab:hover{color:var(--text2);background:var(--bg2)}
+.ttab.a{color:#fff;border-bottom-color:transparent}
+.ttab.a::before{content:'';position:absolute;inset:0;border-radius:8px 8px 0 0;z-index:-1}
+.ttab[data-color="1"].a{background:#5c6bc0}
+.ttab[data-color="2"].a{background:#26a69a}
+.ttab[data-color="3"].a{background:#ef6c00}
+.ttab[data-color="4"].a{background:#7c3aed}
+.ttab .ttab-label{font-size:10px;font-weight:500;opacity:0.7;display:block;margin-bottom:2px}
+.ttab .ttab-main{font-size:13px;font-weight:600;display:block}
+.ttab.dis{color:#ccc;cursor:default;pointer-events:none}
+.ttab.dis::after{content:' (準備中)';font-size:10px;font-weight:400}
+.tp{display:none}.tp.a{display:block}
+
+.snav{position:sticky;top:38px;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:6px 0;margin:0}
+.sni{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}.sni::-webkit-scrollbar{display:none}
+.snl{font-size:11px;font-weight:500;color:var(--text3);padding:4px 10px;border-radius:14px;white-space:nowrap;text-decoration:none;transition:all .15s}
+.snl:hover{background:var(--bg2);color:var(--text)}
+
+.sec{padding:40px 0;border-bottom:1px solid var(--border)}.sec:last-child{border-bottom:none}
+.sn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:600;margin-right:6px;vertical-align:middle}
+.sn-a{background:var(--amber)}
+.st{font-size:17px;font-weight:700;display:inline;vertical-align:middle}
+.sd{font-size:13px;color:var(--text2);margin:8px 0 20px;line-height:1.8}
+
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 0}
+.rc{border-radius:var(--rl);padding:16px 18px}
+.rc h4{font-size:13px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.rc ul{list-style:none;font-size:12px;line-height:1.9}
+.rc li{padding:2px 0 2px 16px;position:relative}
+.rc li::before{position:absolute;left:0;font-size:12px}
+.r-ai{background:var(--blue-bg);border:1px solid #bfdbfe}.r-ai h4{color:var(--blue)}.r-ai li{color:#1e40af}.r-ai li::before{content:'✓';color:var(--blue)}
+.r-hu{background:var(--amber-bg);border:1px solid #fde68a}.r-hu h4{color:var(--amber)}.r-hu li{color:#92400e}.r-hu li::before{content:'◆';color:var(--amber);font-size:8px;top:7px}
+
+.lim{background:var(--red-bg);border:1px solid #fecaca;border-radius:var(--rl);padding:16px 20px;margin:20px 0}
+.lim h3{font-size:14px;font-weight:600;color:var(--red);margin-bottom:10px}
+.li{font-size:12px;color:#7f1d1d;line-height:1.7;padding:6px 0 6px 20px;position:relative;border-bottom:1px solid rgba(185,28,28,.08)}
+.li:last-child{border-bottom:none}
+.li::before{content:'!';position:absolute;left:0;width:14px;height:14px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;top:8px}
+.li strong{font-weight:600}
+
+.goal{background:var(--bg2);border-radius:var(--rl);padding:16px 20px;margin:0 0 24px;font-size:13px;line-height:1.8}
+.goal b{font-weight:600;color:var(--accent)}
+
+.flow{display:flex;gap:0;margin:0 0 28px;overflow-x:auto}
+.fi-box{flex:1;min-width:0;text-align:center;padding:10px 4px;position:relative}
+.fi-box:not(:last-child)::after{content:'→';position:absolute;right:-6px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:13px;z-index:1}
+.fn{width:22px;height:22px;border-radius:50%;background:var(--accent-l);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;margin-bottom:3px}
+.fl{font-size:10px;color:var(--text2);line-height:1.3}
+.fi-hl{background:var(--accent-l);border-radius:6px}
+.fi-hl .fn{background:var(--accent);color:#fff}
+.fi-hl .fl{color:var(--accent);font-weight:600}
+.fi-hu{background:var(--amber-bg);border-radius:6px}
+.fi-hu .fn{background:var(--amber);color:#fff}
+.fi-hu .fl{color:var(--amber);font-weight:600}
+
+.step{margin:0 0 24px;padding:16px 18px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rl)}
+.step-h{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.sb{font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px}
+.b-c{background:var(--blue-bg);color:var(--blue)}
+.b-s{background:var(--green-bg);color:var(--green)}
+.snm{font-size:14px;font-weight:600}
+.sbd{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:8px}
+
+.pw{position:relative;margin:8px 0}
+.pl{font-size:10px;font-weight:500;color:var(--text3);margin-bottom:2px}
+.pr{background:#1e1e2e;color:#cdd6f4;border-radius:var(--r);padding:14px 16px 14px 14px;font-size:12px;line-height:1.8;font-family:var(--f);white-space:pre-wrap;position:relative}
+.pr em{color:#a6e3a1;font-style:normal}
+.pr .cm{color:#6c7086;font-size:11px}
+.cb{position:absolute;top:6px;right:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#cdd6f4;font-size:10px;padding:3px 8px;border-radius:5px;cursor:pointer;font-family:var(--f);transition:all .15s}
+.cb:hover{background:rgba(255,255,255,.2)}
+.cb.ok{background:#a6e3a1;color:#1e1e2e;border-color:#a6e3a1}
+
+.nt{border-radius:var(--r);padding:10px 14px;margin:8px 0;font-size:12px;line-height:1.7;display:flex;gap:8px;align-items:flex-start}
+.ni{flex-shrink:0;font-size:13px;margin-top:1px}
+.n-ok{background:var(--green-bg);color:#15803d}
+.n-w{background:var(--amber-bg);color:#92400e}
+.n-i{background:var(--blue-bg);color:#1e40af}
+
+.ex{background:var(--accent-l);border:1px dashed var(--accent);border-radius:var(--r);padding:10px 14px;margin:8px 0;font-size:12px;line-height:1.7;color:var(--accent)}
+
+.cc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.ccc{background:var(--bg2);border-radius:var(--r);padding:12px;text-align:center}
+.ccc.ng{opacity:.4;position:relative}
+.ccc.ng::after{content:'✕ この形式ではない';position:absolute;bottom:6px;left:0;right:0;font-size:10px;color:var(--red);font-weight:600}
+.ccc.ok{border:2px solid var(--green);position:relative}
+.ccc.ok::after{content:'✓ 正しい形式';position:absolute;bottom:6px;left:0;right:0;font-size:10px;color:var(--green);font-weight:600}
+.ccc h4{font-size:12px;font-weight:600;margin-bottom:3px}
+.ccc p{font-size:10px;color:var(--text2);line-height:1.4;margin-bottom:14px}
+
+.ho{background:linear-gradient(135deg,var(--amber-bg),#fff7ed);border-radius:var(--rl);padding:16px 20px;margin:16px 0;border:1px solid #fde68a}
+.ho h3{font-size:13px;font-weight:600;color:var(--amber);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.ho p{font-size:12px;color:#92400e;line-height:1.7}
+
+.checklist{background:var(--amber-bg);border:2px solid #fde68a;border-radius:var(--rl);padding:18px 20px;margin:20px 0}
+.checklist h3{font-size:14px;font-weight:600;color:var(--amber);margin-bottom:10px}
+.checklist p{font-size:13px;color:#92400e;line-height:2}
+
+.footer{padding:28px 0;text-align:center;font-size:11px;color:var(--text3)}
+
+@media(max-width:640px){.c{padding:0 16px}.rg{grid-template-columns:1fr}.flow{flex-wrap:wrap;gap:4px}.cc{grid-template-columns:1fr}.hdr h1{font-size:19px}.ttab{font-size:11px;padding:10px 4px}}
+.fi{opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}.fi.v{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+<div class="c">
+<div class="hdr-t">Gemini Business Training</div>
+<h1>Gemini研修 活用ガイド<br>株式会社ガードナー様</h1>
+<p>各班の業務課題に対して、Geminiを「どこまで使えて」「どこから先は人間が行うか」を明確にした実践ガイドです。</p>
+<div class="env">利用環境：Google Workspace Business Standard ／ アドオンなし</div>
+</div>
+</header>
+
+<div class="c">
+<div class="tab-hint">下のタブをクリックして、各班・各課題のガイドに切り替えてご覧ください</div>
+<div class="ttabs">
+<button class="ttab a" data-color="1" onclick="showT(0)"><span class="ttab-label">1班</span><span class="ttab-main">商品管理・総務</span></button>
+<button class="ttab" data-color="2" onclick="showT(1)"><span class="ttab-label">2班</span><span class="ttab-main">営業</span></button>
+<button class="ttab" data-color="3" onclick="showT(2)"><span class="ttab-label">3班</span><span class="ttab-main">生産・購買</span></button>
+<button class="ttab" data-color="4" onclick="showT(3)"><span class="ttab-label">別件</span><span class="ttab-main">生産計画立案</span></button>
+</div>
+</div>
+
+<div class="tp a" id="t0">
+
+<nav class="snav"><div class="c"><div class="sni">
+<a href="#roles" class="snl">AI vs 人間</a>
+<a href="#task" class="snl">実施課題</a>
+<a href="#s1" class="snl">STEP1 読取</a>
+<a href="#s2" class="snl">STEP2 表作成</a>
+<a href="#s3" class="snl">STEP3 MAX/MIN</a>
+<a href="#s4" class="snl">STEP4 8回平均</a>
+<a href="#s5" class="snl">STEP5 グラフ</a>
+<a href="#s6" class="snl">STEP6 統合出力</a>
+<a href="#s7" class="snl">STEP7 仕上げ</a>
+<a href="#s8" class="snl">他ツール3パターン</a>
+</div></div></nav>
+
+<!-- 役割分担 -->
+<section id="roles" class="sec"><div class="c">
+<span class="sn" style="background:var(--red)">!</span><h2 class="st">最初に確認：Geminiの役割と限界</h2>
+<p class="sd">この課題は「データの読み取り → 計算 → 表作成」まではGeminiに任せられますが、<strong>社内フォーマットへの転記・色付け・印刷調整は人間が行います。</strong></p>
+
+<div class="rg fi">
+<div class="rc r-ai">
+<h4>🤖 Geminiにお任せ</h4>
+<ul>
+<li>Excelの読み取り・必要行の抽出</li>
+<li>2製品を並べた測定データ表の作成</li>
+<li>10回平均・8回平均の自動計算</li>
+<li>MAX/MIN回の自動判定</li>
+<li>積み上げ棒グラフの生成</li>
+<li>Googleスプレッドシートへの表の出力</li>
+<li>報告書ヘッダーの文章作成</li>
+</ul>
+</div>
+<div class="rc r-hu">
+<h4>👤 人間が行う作業</h4>
+<ul>
+<li>MAX行を黄色、MIN行を水色に色付け</li>
+<li>スプレッドシート → 既存Excelテンプレートへ転記</li>
+<li>罫線・セル結合・ヘッダーの書式調整</li>
+<li>グラフの色・凡例・ラベルの微調整</li>
+<li>全数値の正確性を元データと突き合わせ確認</li>
+<li>印刷レイアウトの調整と最終承認</li>
+</ul>
+</div>
+</div>
+
+<div class="lim fi">
+<h3>具体的にできないこと</h3>
+<div class="li"><strong>セルの背景色の変更は不可</strong> — 「この行を黄色にして」のような書式設定はGeminiのサイドパネルから実行できません。スプレッドシート上で手動で色付けしてください。</div>
+<div class="li"><strong>既存Excelテンプレートへの直接書き込みは不可</strong> — 罫線やセル結合が入った社内フォーマットに直接データを流し込むことはできません。Geminiの表をコピーして貼り付ける手作業が必要です。</div>
+<div class="li"><strong>画像を含む表のスプレッドシート出力は不可</strong> — Geminiの回答に画像が含まれている表は「スプレッドシートにエクスポート」ボタンが表示されません。「表形式のみで出力して」と指示してください。</div>
+<div class="li"><strong>大量データは一部省略される場合がある</strong> — 表が大きいと途中の行が省略されることがあります。出力された表の行数を必ず確認してください。</div>
+<div class="li"><strong>グラフの種類が意図と異なる場合がある</strong> — 「積み上げ棒グラフ」と指示しても通常の棒グラフが生成されることがあります。その場合はグラフエディタで手動変更してください。</div>
+</div>
+</div></section>
+
+<!-- 1班の業務内容 -->
+<section id="task" class="sec"><div class="c">
+<span class="sn" style="background:#5c6bc0">1</span><h2 class="st">1班の実施課題</h2>
+
+<div style="margin:16px 0 0;padding:20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#5c6bc0;margin-bottom:6px">1班：商品管理・総務チーム ／ 選択項目：6-5 要件定義</div>
+<div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5">パーティクルカウンターデータ → 顧客提出用の測定結果表を完成させる</div>
+<div style="font-size:13px;color:var(--text2);line-height:1.9">
+クリーンルームで使用する素材の品質検査として、パーティクルカウンター（MET ONE 3400+）で空気中の微粒子を測定しています。この測定器から出力されるExcelデータを読み取り、社内フォーマットの「素材試験測定結果表」に整形して、お客様に提出できる状態にするのが今回の課題です。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0" class="fi">
+<div style="padding:16px 18px;background:var(--blue-bg);border-radius:var(--rl);border:1px solid #bfdbfe">
+<div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:6px">📥 使用するデータ（入力）</div>
+<div style="font-size:12px;color:#1e40af;line-height:1.8">
+<strong>①生データ：</strong>samples-C38675〜.xlsx<br>
+→ パーティクルカウンターからそのまま出力された測定データ。各粒径（0.3µm〜10.0µm）の粒子数が記録されています。<br><br>
+<strong>②完成見本：</strong>社内用データ.xlsx<br>
+→ 過去に手作業で整形した完成済みの報告書。今回はこれと同じ形式を目指します。
+</div>
+</div>
+<div style="padding:16px 18px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">📤 完成物（出力）</div>
+<div style="font-size:12px;color:#166534;line-height:1.8">
+<strong>①測定データ表：</strong><br>
+1回目〜5回目の各粒径データ + 10回平均 + 8回平均（MAX/MIN除外）。MAX行は<span style="background:#fff2cc;padding:0 3px;border-radius:2px">黄色</span>、MIN行は<span style="background:#d0e8ff;padding:0 3px;border-radius:2px">水色</span>で色付け。<br><br>
+<strong>②積み上げ棒グラフ：</strong><br>
+EC5551FWJ（現行）と EC5551FWJA（新規）を比較。<br><br>
+<strong>③報告書ヘッダー：</strong><br>
+測定条件・機器情報を含む正式な帳票。
+</div>
+</div>
+</div>
+
+<div style="padding:14px 18px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a;margin:0 0 0" class="fi">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:4px">💡 現在の作業方法（Before）</div>
+<div style="font-size:12px;color:#92400e;line-height:1.8">
+現在は、パーティクルカウンターの出力データから手作業で数値を1つずつ読み取り、社内Excelテンプレートに転記 → MAX/MINの判定・色付け → 平均計算 → グラフ作成、をすべて手動で行っています。<strong>この作業をGeminiで効率化</strong>することが今回の目標です。
+</div>
+</div>
+</div></section>
+
+<!-- 全体の流れ -->
+<section class="sec"><div class="c">
+<span class="sn">0</span><h2 class="st">全体の流れ</h2>
+<p class="sd">7つのステップで進めます。STEP 1〜6がGeminiでの作業、STEP 7が人間の仕上げ作業です。</p>
+<div class="flow fi">
+<div class="fi-box"><div class="fn">1</div><div class="fl">データ<br>読取</div></div>
+<div class="fi-box"><div class="fn">2</div><div class="fl">表を<br>作成</div></div>
+<div class="fi-box"><div class="fn">3</div><div class="fl">MAX<br>MIN</div></div>
+<div class="fi-box"><div class="fn">4</div><div class="fl">8回<br>平均</div></div>
+<div class="fi-box"><div class="fn">5</div><div class="fl">積上げ<br>グラフ</div></div>
+<div class="fi-box fi-hl"><div class="fn">6</div><div class="fl">統合<br>出力</div></div>
+<div class="fi-box fi-hu"><div class="fn">7</div><div class="fl">人間の<br>仕上げ</div></div>
+</div>
+<div class="goal fi">
+<b>完成物：</b>①1〜5回目の測定データ表（MAX=<span style="background:#fff2cc;padding:0 4px;border-radius:2px">黄</span>・MIN=<span style="background:#d0e8ff;padding:0 4px;border-radius:2px">水色</span>）②10回平均＋8回平均 ③積み上げ棒グラフ ④報告書ヘッダー
+</div>
+</div></section>
+
+<!-- STEP 1 -->
+<section id="s1" class="sec"><div class="c">
+<span class="sn">1</span><h2 class="st">生データから必要なデータだけを抽出する</h2>
+<p class="sd">ファイルにはクリーニング用データやキャンセル行も含まれています。本測定データだけを正確に抽出します。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">ファイルをアップロードして抽出</span></div>
+<div class="sbd">samples-C38675〜.xlsx をGeminiにドラッグ＆ドロップし、以下を入力。</div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="p1">添付したExcelファイルは、パーティクルカウンター（MET ONE 3400+）の出力データです。
+
+このデータの中から以下の条件で整理してください。
+
+<em>【抽出条件】</em>
+・サンプル番号が「1（連続）」〜「5（連続）」の行だけを対象
+・体積が「0.028m³」の行のみ（0.141m³はクリーニング用なので除外）
+・エラー・キャンセル行は除外
+・同じ番号のグループが複数ある場合はEC5551FWJ用とEC5551FWJA用を区別
+
+<em>【出力する列】</em>
+0.3µm粒径、0.5µm粒径、1.0µm粒径、3.0µm粒径、5.0µm粒径、10.0µm粒径
+
+<em>【表の形式】</em>
+・「1（連続）」→「1回目」のように読み替え
+・EC5551FWJ（現行）とEC5551FWJA（新規）を区別して別々の表にする
+・表形式で出力してください<button class="cb" onclick="cp(this,'p1')">コピー</button></div></div>
+<div class="nt n-w"><span class="ni">⚠️</span><div>抽出結果は必ず元データと突き合わせてください。どのグループがどの製品かは時系列やロケーション情報から判断が必要です。</div></div>
+</div>
+</div></section>
+
+<!-- STEP 2 -->
+<section id="s2" class="sec"><div class="c">
+<span class="sn">2</span><h2 class="st">完成見本と同じ形式の表を作成する</h2>
+<p class="sd">完成見本の社内用データもアップロードし、同じレイアウトの表を作ります。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">2製品を並べた提出用表を作成</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="p2"><span class="cm">※ 完成見本（社内用データ.xlsx）も一緒にアップロード：</span>
+
+2つ目のファイルは完成見本です。この形式に合わせて表を作ってください。
+
+<em>【表の構成】</em>
+・列：粒径名 ｜ EC5551FWJ（現行）｜ EC5551FWJA（新規）
+・行：1回目〜5回目の各粒径（0.3µm〜10.0µm）+ 各回の合計
+
+表形式で出力してください。<button class="cb" onclick="cp(this,'p2')">コピー</button></div></div>
+</div>
+</div></section>
+
+<!-- STEP 3 -->
+<section id="s3" class="sec"><div class="c">
+<span class="sn">3</span><h2 class="st">MAX（最大）とMIN（最小）を判定する</h2>
+<p class="sd">各製品の5回の合計数を比較し、最大の回と最小の回を特定します。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">MAX/MINの自動判定</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="p3">先ほどの表から、各製品について以下を判定してください。
+
+<em>【判定内容】</em>
+・各回（1回目〜5回目）の全粒径の合計数を比較
+・合計数が<em>最大の回を「MAX」</em>、<em>最小の回を「MIN」</em>として明記
+・EC5551FWJ、EC5551FWJAの両方について実施
+
+結果を「○回目がMAX（合計：○個）、○回目がMIN（合計：○個）」で明記してください。<button class="cb" onclick="cp(this,'p3')">コピー</button></div></div>
+<div class="ho"><h3>👤 この後の人間作業</h3><p>スプレッドシートにエクスポートした後、MAX行を選択→背景色を黄色に、MIN行→水色に手動で設定します。</p></div>
+</div>
+</div></section>
+
+<!-- STEP 4 -->
+<section id="s4" class="sec"><div class="c">
+<span class="sn">4</span><h2 class="st">8回平均（MAX/MIN除外）を計算する</h2>
+<p class="sd">MAX回とMIN回を除いた残り3回分で各粒径の平均値を計算します。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">除外平均の計算</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="p4">先ほどのMAX/MIN判定を使って、各製品について以下を計算してください。
+
+<em>【計算内容】</em>
+・MAX回とMIN回を除いた<em>残り3回分</em>で、各粒径ごとの平均値を計算
+・この平均を「8回平均」として表示
+・8回平均の全粒径合計も計算
+
+<em>【表の最終構成】</em>
+1回目→2回目→3回目→4回目→5回目→10回平均→8回平均
+※MAX回・MIN回がどれかも注記
+
+1つの表形式で出力してください。<button class="cb" onclick="cp(this,'p4')">コピー</button></div></div>
+</div>
+</div></section>
+
+<!-- STEP 5 -->
+<section id="s5" class="sec"><div class="c">
+<span class="sn">5</span><h2 class="st">積み上げ棒グラフを作成する</h2>
+<p class="sd">各粒径を色分けして1本に積み上げた<strong>積み上げ棒グラフ</strong>です。通常の棒グラフではありません。</p>
+<div class="cc fi">
+<div class="ccc ng"><h4>通常の棒グラフ</h4><p>粒径ごとに別々の棒が並ぶ</p></div>
+<div class="ccc ok"><h4>積み上げ棒グラフ</h4><p>1本の棒に各粒径を積み上げる</p></div>
+</div>
+<div class="step fi">
+<div class="step-h"><span class="sb b-s">スプレッドシート</span><span class="snm">サイドパネルでグラフ作成</span></div>
+<div class="sbd">STEP 6でエクスポートしたスプレッドシートを開き、サイドパネルからグラフを作成。</div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="p5"><span class="cm">※ スプレッドシート右上の「Geminiに相談」をクリック：</span>
+
+10回平均のデータを使って<em>積み上げ棒グラフ</em>を作成してください。
+
+<em>【構成】</em>
+・X軸：製品名（EC5551FWJ、EC5551FWJA）
+・Y軸：発塵数量
+・各粒径（0.3µm〜10.0µm）を色分けして積み上げ
+・タイトル：「発塵測量【0.3µ → 10.0µ】」
+・凡例を上部に表示<button class="cb" onclick="cp(this,'p5')">コピー</button></div></div>
+<div class="nt n-w"><span class="ni">⚠️</span><div>通常の棒グラフが生成された場合は「積み上げ棒グラフに変更して」と再指示。それでもダメならグラフを右クリック→「グラフを編集」→「グラフの種類」から手動で変更。</div></div>
+<div class="ho"><h3>👤 この後の人間作業</h3><p>グラフの色・凡例配置・軸ラベルはGeminiでは完全制御できません。グラフをダブルクリック→「グラフエディタ」で手動調整してください。</p></div>
+</div>
+</div></section>
+
+<!-- STEP 6 統合出力 -->
+<section id="s6" class="sec"><div class="c">
+<span class="sn" style="background:#7c3aed">★</span><h2 class="st">最終データを統合してスプレッドシートに出力する</h2>
+<p class="sd">ここまでの全データを1つの表にまとめ、「Googleスプレッドシートにエクスポート」で一括出力します。<strong>このプロンプトが最終成果物のベース</strong>になります。</p>
+
+<div class="step fi" style="border-color:#7c3aed;border-width:2px">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">Gemini Chat</span><span class="snm">スプレッドシート用の最終統合データ</span></div>
+<div class="sbd">ここまでの会話の流れで、最終出力を1つの表にまとめます。</div>
+<div class="pw"><div class="pl">💬 最終出力用プロンプト — コピーしてそのまま使えます</div>
+<div class="pr" id="p6">ここまでのすべてのデータを統合して、<em>Googleスプレッドシートにエクスポートできる1つの表</em>を作成してください。
+
+<em>【表の構成（上から順に）】</em>
+
+■ 測定データ（1行目にヘッダー）
+| 回 | 粒径 | EC5551FWJ（現行）| EC5551FWJA（新規）| 備考 |
+
+1回目 → 0.3µm〜10.0µm の各値 + 合計行
+2回目 → 同上
+3回目 → 同上
+4回目 → 同上
+5回目 → 同上
+
+※ 備考列にMAX回は「MAX」、MIN回は「MIN」と記載
+
+（空白行で区切り）
+
+■ 平均値
+10回平均 → 各粒径の平均 + 合計
+8回平均（MAX/MIN除外）→ 各粒径の平均 + 合計
+
+（空白行で区切り）
+
+■ グラフ用データ
+| 粒径 | EC5551FWJ | EC5551FWJA |
+0.3µm〜10.0µm の10回平均値を1行ずつ
+
+<em>【重要な出力条件】</em>
+・数値のみ記載（単位は列ヘッダーにのみ）
+・必ず<em>表形式（テーブル形式）</em>で出力する
+　→ 「Googleスプレッドシートにエクスポート」ボタンが表示されるように
+・画像は含めないでください<button class="cb" onclick="cp(this,'p6')">コピー</button></div></div>
+
+<div class="ex">
+<strong>エクスポート手順：</strong><br>
+① 表の右下「Googleスプレッドシートにエクスポート」をクリック<br>
+② Googleドライブに新しいスプレッドシートが自動作成<br>
+③ Excel形式が必要な場合：「ファイル」→「ダウンロード」→「.xlsx」
+</div>
+<div class="nt n-w"><span class="ni">⚠️</span><div><strong>ボタンが出ない場合：</strong>「上記の内容をテーブル形式で再出力してください。画像は含めないでください。」と再指示してください。</div></div>
+</div>
+</div></section>
+
+<!-- STEP 7 人間の仕上げ -->
+<section id="s7" class="sec"><div class="c">
+<span class="sn sn-a">7</span><h2 class="st">報告書の仕上げ（人間の作業）</h2>
+<p class="sd">ここから先はGeminiの出力物を使って、人間が最終的な顧客提出用資料を完成させます。</p>
+
+<div class="step fi" style="border-color:var(--amber);border-width:2px">
+<div class="step-h"><span class="sb" style="background:var(--amber-bg);color:var(--amber)">Gemini Chat（テキストのみ）</span><span class="snm">報告書ヘッダーの文章を作成</span></div>
+<div class="sbd">ヘッダー部分のテキストだけGeminiに作ってもらいます。</div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="p7">以下の測定条件で「素材試験測定結果表」のヘッダーテキストを作成してください。
+
+<em>【記載項目】</em>
+・分類：（社内評価）
+・日付：2026年02月26日
+・会社名：㈱ガードナー
+1. 測定項目：タンブリング発塵測定
+2. 測定試料：EC5551FWJ(現行)、EC5551FWJA(新規)（素材1m×1m生地辺）
+3. 測定月日：2026年02月26日
+4. 測定場所：㈱ガードナー クリーンルーム〔Fed.Std.209D クラス10〕
+5. 測定機器：MET ONE パーティクルカウンター 3413+型（1.0cfm→28.3L/min）
+6. 測定方法：JIS B 9923 タンブリング法（ドラム回転数：40rpm）
+7. 測定環境：RT 23℃, RH 45%
+
+末尾注記：「データは実測値です（保証値ではありません）」
+
+テキストのみ出力してください。<button class="cb" onclick="cp(this,'p7')">コピー</button></div></div>
+</div>
+
+<div class="checklist fi">
+<h3>👤 最終仕上げチェックリスト</h3>
+<p>
+☐ スプレッドシートのMAX行を黄色、MIN行を水色に色付け<br>
+☐ 積み上げ棒グラフの色・凡例を完成見本に合わせて調整<br>
+☐ 報告書ヘッダーを既存Excelテンプレートに貼り付け<br>
+☐ 測定データ表をテンプレートの該当箇所にコピー＆ペースト<br>
+☐ グラフをテンプレートに貼り付け<br>
+☐ <strong>全数値が元データと一致しているか最終確認</strong><br>
+☐ 印刷プレビューでレイアウトを確認<br>
+☐ 最終承認者に提出
+</p>
+</div>
+</div></section>
+
+<!-- 1班 他のAIツール3パターン -->
+<section id="s8" class="sec"><div class="c">
+<span class="sn" style="background:var(--green)">+</span><h2 class="st">他のAIツールでの実装パターン（3つの選択肢）</h2>
+<p class="sd">研修ではGeminiを使いますが、別のAIツールでも同じ業務は実現可能です。今後の本格運用を検討する際の参考として、3つのパターンを紹介します。</p>
+
+<!-- パターンA -->
+<div class="step fi" style="border:2px solid var(--green)">
+<div class="step-h">
+<span class="sb" style="background:var(--green-bg);color:var(--green);font-size:11px">パターンA ⭐ おすすめ</span>
+<span class="snm">Claude for Excel（Excelアドイン）</span>
+</div>
+<div class="step-bd">Anthropic社のAI「Claude」をExcelに直接統合するアドイン<sup style="font-size:9px">※1</sup>。Excel上で「この測定データの平均を計算してグラフにして」と日本語で指示するだけで処理できます。Skills機能<sup style="font-size:9px">※2</sup>を使えば「毎月のパーティクル測定処理」を1クリック化できる点が最大の強みです。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Microsoft 365（Excel）+ Claude for Excelアドイン（月額制）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">所要期間</td><td style="padding:6px 10px;border:1px solid var(--border)">即日導入可能</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">Excel中心で業務を行っている／毎月の定型業務を自動化したい</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">Excelの中で完結、社内テンプレートに直接書き込める、定型化が容易</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">Microsoft 365契約が必要、AI処理は確率的なので最終確認は必須</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※1 アドイン：既存ソフトに機能を追加する拡張プログラム。<br>※2 Skills：よく使う処理手順を保存しておき、ワンクリックで再実行できる機能。「月次測定処理」「報告書作成」などをテンプレート化できます。</div></div>
+</div>
+
+<!-- パターンB -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--blue-bg);color:var(--blue);font-size:11px">パターンB 確実性重視</span>
+<span class="snm">Claude Code または Cursor でプログラム作成</span>
+</div>
+<div class="step-bd">Claude Code<sup style="font-size:9px">※3</sup>やCursor<sup style="font-size:9px">※4</sup>に「パーティクルカウンターのデータを処理するプログラムを書いて」と依頼し、Python<sup style="font-size:9px">※5</sup>やGoogle Apps Script<sup style="font-size:9px">※6</sup>のプログラムを作成します。プログラムは確率的に動かないため、<strong>毎回必ず同じ正確な結果が出る</strong>のが最大の強みです。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Claude Code / Cursor等の開発支援AI + プログラム実行環境</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">所要期間</td><td style="padding:6px 10px;border:1px solid var(--border)">1〜2週間（試作〜検証）</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">数値の正確性が業務上絶対に必要／社内にIT担当者がいる</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">完全に確定的な処理。一度作れば永続的に同じ品質で実行可能</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">プログラムの仕様変更にはAI再依頼が必要、担当者がいないと属人化リスク</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※3 Claude Code：Anthropic社のAI開発支援ツール。プログラムを書かない人でもAIに自然言語で依頼してコードを作成できます。<br>※4 Cursor：AI機能が強力な高機能テキストエディタ。プログラマー向け。<br>※5 Python：データ処理に強いプログラミング言語。<br>※6 Google Apps Script：Googleスプレッドシートで動くプログラミング言語。Workspace環境で使いやすい。</div></div>
+</div>
+
+<!-- パターンC -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--amber-bg);color:var(--amber);font-size:11px">パターンC お試し向き</span>
+<span class="snm">ChatGPT Advanced Data Analysis</span>
+</div>
+<div class="step-bd">ChatGPT Plus<sup style="font-size:9px">※7</sup>の有料プランで使える機能。Excelファイルをアップロードすると、ChatGPTが裏でPythonコードを自動実行してデータを処理してくれます。Geminiと違って<strong>計算過程が「見える」</strong>ため、結果の正確性を検証しやすい点が特徴です。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">ChatGPT Plus（月額20ドル程度）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">所要期間</td><td style="padding:6px 10px;border:1px solid var(--border)">即日利用可能</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">単発的な分析業務／個人で手軽に試したい</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">計算過程が可視化される、グラフも自動生成、低コスト</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">既存Excelテンプレートへの直接書き込みは不可、社内データの取り扱いに注意</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※7 ChatGPT Plus：OpenAI社のAI「ChatGPT」の有料プラン。データ分析機能（Advanced Data Analysis）が利用できます。</div></div>
+</div>
+</div></section>
+
+</div>
+
+<div class="tp" id="t1">
+
+<nav class="snav"><div class="c"><div class="sni">
+<a href="#r2" class="snl">AI vs 人間</a>
+<a href="#t2task" class="snl">実施課題</a>
+<a href="#t2s1" class="snl">STEP1 @Gmail検索</a>
+<a href="#t2s2" class="snl">STEP2 要約</a>
+<a href="#t2s3" class="snl">STEP3 統合</a>
+<a href="#t2s4" class="snl">STEP4 ドキュメント</a>
+<a href="#t2s5" class="snl">STEP5 テンプレート</a>
+<a href="#t2s6" class="snl">STEP6 仕上げ</a>
+<a href="#t2s7" class="snl">他ツール3パターン</a>
+</div></div></nav>
+
+<!-- 2班 役割分担 -->
+<section id="r2" class="sec"><div class="c">
+<span class="sn" style="background:var(--red)">!</span><h2 class="st">最初に確認：Geminiの役割と限界</h2>
+<p class="sd">この課題は「メールの検索・要約・整理」がメインで、Geminiが最も得意とする領域です。ただし<strong>AIの要約は推定であり、重要な決定事項は必ず原本メールで確認</strong>してください。</p>
+
+<div class="rg fi">
+<div class="rc r-ai">
+<h4>🤖 Geminiにお任せ</h4>
+<ul>
+<li>Gmailから関連メールの検索</li>
+<li>長文メールの要点を自動要約</li>
+<li>複数メールの内容を時系列で整理</li>
+<li>「最新の決定事項」を抽出してまとめ</li>
+<li>要約レポートのドキュメント出力</li>
+<li>今後使えるテンプレートプロンプト作成</li>
+</ul>
+</div>
+<div class="rc r-hu">
+<h4>👤 人間が行う作業</h4>
+<ul>
+<li>要約内容が正しいか原本メールで確認</li>
+<li>添付ファイルの中身は手動で確認</li>
+<li>「どの情報が最終版か」の最終判断</li>
+<li>関係者への確認が必要な場合の電話・チャット</li>
+<li>チーム内への共有・展開</li>
+</ul>
+</div>
+</div>
+
+<div class="lim fi">
+<h3>具体的にできないこと</h3>
+<div class="li"><strong>メール添付ファイルの中身は自動で読めない</strong> — Geminiはメール本文の要約はできますが、添付されたExcelやPDFの中身まで自動で読み取ることはできません。添付ファイルは別途手動で確認してください。</div>
+<div class="li"><strong>「どれが最終版か」の判断はAIの推定</strong> — Geminiは日付が新しいメールを最新と判断しますが、内容の正誤や最終決定かどうかの判定は人間が行う必要があります。</div>
+<div class="li"><strong>日本語メールの要約精度は英語より劣る場合がある</strong> — 最新モデルで改善されていますが、専門用語や社内独自の表現は誤解される可能性があります。</div>
+</div>
+</div></section>
+
+<!-- 2班 実施課題 -->
+<section id="t2task" class="sec"><div class="c">
+<span class="sn" style="background:#26a69a">2</span><h2 class="st">2班の実施課題</h2>
+
+<div style="margin:16px 0 0;padding:20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#26a69a;margin-bottom:6px">2班：営業チーム ／ 選択項目：2-3 ロールプレイング</div>
+<div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5">時間差で届く社内アナウンスの要約</div>
+<div style="font-size:13px;color:var(--text2);line-height:1.9">
+仕様変更や社内ルール変更の案内メールが、時間差で複数回に分けて届くため、どれが最新の決定事項なのかが分かりにくい状況です。Geminiを使って「話題ごとに最終決定事項・経緯・参照資料」を整理し、一目で分かるまとめドキュメントを作成します。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0" class="fi">
+<div style="padding:16px 18px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px">💡 現在の作業方法（Before）</div>
+<div style="font-size:12px;color:#92400e;line-height:1.8">
+・Gmailで対象メールを自力で検索<br>
+・最新版と思われるメールを探す<br>
+・不明点は発信者に電話で確認<br>
+・メール本文と添付が別々で紐づけが大変
+</div>
+</div>
+<div style="padding:16px 18px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">📤 目指す状態（After）</div>
+<div style="font-size:12px;color:#166534;line-height:1.8">
+・話題ごとに「最終決定事項」が一覧化<br>
+・変更の経緯が時系列で追える<br>
+・参照すべき資料がリンク付きで整理<br>
+・チーム内で共有できるドキュメント化
+</div>
+</div>
+</div>
+</div></section>
+
+<!-- 2班 全体の流れ -->
+<section class="sec"><div class="c">
+<span class="sn">0</span><h2 class="st">全体の流れ</h2>
+<p class="sd">6つのステップで進めます。STEP 1〜5がGeminiでの作業、STEP 6が人間の確認作業です。</p>
+<div class="flow fi">
+<div class="fi-box"><div class="fn">1</div><div class="fl">@Gmail<br>検索</div></div>
+<div class="fi-box"><div class="fn">2</div><div class="fl">詳細<br>要約</div></div>
+<div class="fi-box"><div class="fn">3</div><div class="fl">統合<br>整理</div></div>
+<div class="fi-box"><div class="fn">4</div><div class="fl">ドキュメ<br>ント化</div></div>
+<div class="fi-box fi-hl"><div class="fn">5</div><div class="fl">テンプ<br>レート</div></div>
+<div class="fi-box fi-hu"><div class="fn">6</div><div class="fl">人間の<br>確認</div></div>
+</div>
+</div></section>
+
+<!-- 2班 STEP 1 -->
+<section id="t2s1" class="sec"><div class="c">
+<span class="sn">1</span><h2 class="st">Gemini Appから@Gmailでメールを横断検索する</h2>
+<p class="sd">Gemini App（gemini.google.com）を開き、@でGmailを指定して関連メールを横断検索します。Gmailサイドパネルよりも複数メールの統合や後続のエクスポートに向いています。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini App + @Gmail</span><span class="snm">@Gmailで関連メールを横断検索</span></div>
+<div class="sbd">gemini.google.com を開き、入力欄に「@」と入力すると候補に「Gmail」が表示されます。選択すると、Gmailの中身を参照できるようになります。</div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t2p1"><span class="cm">※ gemini.google.com で @Gmail を選択して：</span>
+
+@Gmail 「仕様変更」に関するメールのうち、直近3ヶ月以内に届いたものを探してください。
+日付が新しい順に<em>件名・送信者・日付・要約（1行）</em>を表形式でまとめてください。<button class="cb" onclick="cp(this,'t2p1')">コピー</button></div></div>
+<div class="nt n-i"><span class="ni">💡</span><div><strong>なぜGemini Appを使うのか：</strong>Gmailサイドパネルでも検索は可能ですが、Gemini Appの方が①複数メールの横断検索に強い ②結果をそのままスプレッドシートやドキュメントにエクスポートできる ③後続の統合整理まで1つの会話で完結できる、というメリットがあります。</div></div>
+<div class="nt n-w"><span class="ni">⚠️</span><div><strong>事前設定：</strong>Gemini Appの「設定」→「拡張機能」→「Google Workspace」がオンになっている必要があります。管理者が有効化していれば、初回使用時に自動で連携されます。</div></div>
+</div>
+</div></section>
+
+<!-- 2班 STEP 2 -->
+<section id="t2s2" class="sec"><div class="c">
+<span class="sn">2</span><h2 class="st">個別メールの要点を詳しく要約する</h2>
+<p class="sd">STEP 1で見つかった各メールについて、さらに詳しく要約します。Gemini Appの同じ会話で続けるか、Gmailサイドパネルで個別に要約できます。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini App（続き）</span><span class="snm">各メールの詳細要約を依頼</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t2p2"><span class="cm">※ STEP 1の会話の続きで：</span>
+
+先ほど見つかったメールのうち、最新の3通について、それぞれ以下の点を<em>詳しく要約</em>してください。
+・何が変更されたか
+・いつから適用か
+・対応が必要なアクションはあるか
+・添付ファイルの有無と内容の推測<button class="cb" onclick="cp(this,'t2p2')">コピー</button></div></div>
+<div class="nt n-i"><span class="ni">💡</span><div><strong>Gmailサイドパネルでも可能：</strong>特定のメールを開いた状態でGmailの右上「Geminiに相談」をクリック→「このメールを要約して」と指示すれば、そのスレッドの要約が得られます。個別メールを1通ずつ詳しく確認したい場合はこちらも便利です。</div></div>
+</div>
+</div></section>
+
+<!-- 2班 STEP 3 -->
+<section id="t2s3" class="sec"><div class="c">
+<span class="sn">3</span><h2 class="st">複数メールの内容を統合して整理する</h2>
+<p class="sd">STEP 1〜2の会話の続きで、複数のメール要約を時系列で統合し、一覧表にまとめます。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini App（続き）</span><span class="snm">複数メールの統合整理</span></div>
+<div class="sbd">同じ会話の中で続けて指示します。Geminiが先ほどの要約結果を記憶しているため、改めてコピペする必要はありません。</div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t2p3">先ほど要約した複数のメールの内容を統合して、以下の列を持つ<em>1つの表</em>にまとめてください。
+
+| 話題 | 最終決定事項 | 変更の経緯 | 参照すべきメール（日付・送信者） | 対応期限 | 必要なアクション |
+
+時系列で整理し、<em>表形式で出力</em>してください。<button class="cb" onclick="cp(this,'t2p3')">コピー</button></div></div>
+<div class="ex"><strong>スプレッドシートに出力：</strong>表の右下「Googleスプレッドシートにエクスポート」をクリック → チーム内で共有できます。</div>
+</div>
+</div></section>
+
+<!-- 2班 STEP 4 -->
+<section id="t2s4" class="sec"><div class="c">
+<span class="sn">4</span><h2 class="st">「社内決定事項まとめ」ドキュメントを作成する</h2>
+<p class="sd">整理した内容をGoogleドキュメントに出力し、チーム共有用のレポートにします。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">ドキュメント形式で出力</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t2p4">上記の整理結果をもとに、チーム内共有用の<em>「社内アナウンス要約レポート」</em>を作成してください。
+
+<em>【構成】</em>
+・タイトル：社内アナウンス要約（○○月分）
+・更新日：本日の日付
+・話題ごとにセクションを分ける
+・各セクションに「最終決定事項」「変更の経緯」「関連資料の場所」「対応期限」を記載
+
+<em>Googleドキュメントにエクスポート</em>できる形式で作成してください。<button class="cb" onclick="cp(this,'t2p4')">コピー</button></div></div>
+<div class="nt n-ok"><span class="ni">✅</span><div>Geminiの回答下部の「共有とエクスポート」→「Googleドキュメントにエクスポート」で自動的にドキュメントが作成されます。</div></div>
+</div>
+</div></section>
+
+<!-- 2班 STEP 5 -->
+<section id="t2s5" class="sec"><div class="c">
+<span class="sn" style="background:#7c3aed">★</span><h2 class="st">今後も使えるテンプレートプロンプトを作る</h2>
+<p class="sd">新しいアナウンスが届くたびにすぐ使える「定型プロンプト」を作っておきます。</p>
+<div class="step fi" style="border-color:#7c3aed;border-width:2px">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">Gemini Chat</span><span class="snm">再利用可能なテンプレート作成</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t2p5">今後、社内アナウンスメールが届くたびに使える<em>要約用のテンプレートプロンプト</em>を作成してください。
+
+<em>【テンプレートに含める項目】</em>
+・話題（件名）
+・変更内容の要約
+・前回からの変更点（差分）
+・対応が必要なアクション
+・関連する添付資料名
+・対応期限
+・確認すべき関係者
+
+<em>【条件】</em>
+・「ここにメール内容を貼り付け」のような穴埋め形式にする
+・コピペしてすぐ使える形にする
+・出力形式は表形式を指定<button class="cb" onclick="cp(this,'t2p5')">コピー</button></div></div>
+<div class="nt n-ok"><span class="ni">✅</span><div>作成したテンプレートはGoogleドキュメントに保存しておけば、次回以降はそこからコピーしてGeminiに貼り付けるだけで同じ品質の要約ができます。</div></div>
+</div>
+</div></section>
+
+<!-- 2班 STEP 6 -->
+<section id="t2s6" class="sec"><div class="c">
+<span class="sn sn-a">6</span><h2 class="st">最終確認（人間の作業）</h2>
+<p class="sd">Geminiの要約結果を使って、人間が最終確認を行います。</p>
+
+<div class="checklist fi">
+<h3>👤 最終確認チェックリスト</h3>
+<p>
+☐ 要約された「最終決定事項」が原本メールと一致しているか確認<br>
+☐ 添付ファイルの中身を手動で確認し、本文との整合性をチェック<br>
+☐ 対応期限が正しいか確認<br>
+☐ 不明点がある場合は発信者に直接確認<br>
+☐ ドキュメントの更新日を記入<br>
+☐ チームメンバーに共有
+</p>
+</div>
+
+<div class="ho fi"><h3>👤 日本語メールの注意点</h3><p>Geminiの日本語要約は最新モデルで大幅に改善されていますが、英語と比べると精度が劣る場合があります。特に社内独自の略語や専門用語は誤解される可能性があるため、要約結果は必ず目視確認してください。</p></div>
+</div></section>
+
+<!-- 2班 他のAIツール3パターン -->
+<section id="t2s7" class="sec"><div class="c">
+<span class="sn" style="background:var(--green)">+</span><h2 class="st">他のAIツールでの実装パターン（3つの選択肢）</h2>
+<p class="sd">研修ではGemini App + @Gmailを使いますが、別のAIツールでも同じ業務は実現可能です。今後の本格運用を検討する際の参考として、3つのパターンを紹介します。</p>
+
+<!-- パターンA -->
+<div class="step fi" style="border:2px solid var(--green)">
+<div class="step-h">
+<span class="sb" style="background:var(--green-bg);color:var(--green);font-size:11px">パターンA ⭐ 研修と同じ方式</span>
+<span class="snm">Gemini App + @Gmail（現状の最適解）</span>
+</div>
+<div class="step-bd">研修で扱う方式そのものです。Google Workspaceとの統合度が最も高く、追加コストなしで利用できる点が最大の強みです。Gmail内のメールを@で参照し、要約・統合・ドキュメント化まで1つの会話で完結します。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Google Workspace Business Standard以上（既に契約済み）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">追加コスト</td><td style="padding:6px 10px;border:1px solid var(--border)">なし</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">Workspace中心で業務を行っている／追加投資なしで始めたい</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">Gmail・Drive・Docsとシームレスに連携、即日利用可能</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">日本語要約の精度は英語より劣る場合あり、要約結果の目視確認は必須</td></tr>
+</table>
+</div>
+
+<!-- パターンB -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--blue-bg);color:var(--blue);font-size:11px">パターンB Outlook向け</span>
+<span class="snm">Microsoft Copilot for Outlook</span>
+</div>
+<div class="step-bd">Microsoft社のAI「Copilot<sup style="font-size:9px">※1</sup>」をOutlookに統合した機能。Outlookの右側にAIパネルが表示され、メールの要約・返信文作成・スレッド検索が可能です。ガードナー様は現在Gmail利用のため<strong>参考情報</strong>として記載しますが、将来Outlookに移行した場合の選択肢になります。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Microsoft 365 + Copilotライセンス（月額制）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">追加コスト</td><td style="padding:6px 10px;border:1px solid var(--border)">Copilotライセンス：1ユーザー月額数千円</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">Microsoft 365（Outlook）中心の企業</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">Outlook・Teams・Excelなどとシームレスに連携</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">Gmail利用中の場合はこの選択肢は不適合</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※1 Copilot：Microsoft社のAIアシスタント。Office製品（Word、Excel、Outlook、Teams、PowerPoint）に統合されています。</div></div>
+</div>
+
+<!-- パターンC -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--amber-bg);color:var(--amber);font-size:11px">パターンC 高品質要約</span>
+<span class="snm">Claude（Web版またはデスクトップ版）</span>
+</div>
+<div class="step-bd">メールの内容を手動でClaudeにコピペして要約・整理してもらう方式です。Claudeは<strong>日本語の長文要約や論理整理が特に得意</strong>で、複雑な案件の整理に強みがあります。Gmailと直接連携するにはMCP<sup style="font-size:9px">※2</sup>と呼ばれる仕組みの設定が必要で、手軽さではGeminiに劣ります。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Claude（無料 or Proプラン）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">追加コスト</td><td style="padding:6px 10px;border:1px solid var(--border)">無料プランあり／Pro月額20ドル程度</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">特に重要な案件で高品質な要約が必要／論理的な整理を重視する</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">日本語の文章理解・要約品質が高い、長文に強い</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">Gmailとの直接連携には別途設定が必要、コピペ作業が発生</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※2 MCP：Model Context Protocol（モデル・コンテキスト・プロトコル）の略。AIと外部サービスをつなぐ仕組み。設定にはIT知識が必要。</div></div>
+</div>
+</div></section>
+
+</div>
+
+<div class="tp" id="t2">
+
+<nav class="snav"><div class="c"><div class="sni">
+<a href="#r3" class="snl">AI vs 人間</a>
+<a href="#t3task" class="snl">実施課題</a>
+<a href="#t3s1" class="snl">STEP1 訴求設計</a>
+<a href="#t3s2" class="snl">STEP2 コピー</a>
+<a href="#t3s3" class="snl">STEP3 画像試行</a>
+<a href="#t3s4" class="snl">STEP4 指示書</a>
+<a href="#t3s5" class="snl">STEP5 仕上げ</a>
+<a href="#t3s6" class="snl">他ツール3パターン</a>
+</div></div></nav>
+
+<!-- 3班 役割分担 -->
+<section id="r3" class="sec"><div class="c">
+<span class="sn" style="background:var(--red)">!</span><h2 class="st">最初に確認：Geminiの役割と限界</h2>
+<p class="sd">3班の要望には「画像編集」が多く含まれていますが、Geminiは画像編集ツールではありません。<strong>Geminiの役割は「制作の前工程（企画・コピー・構成）」の効率化</strong>であり、最終的なデザイン仕上げはPhotoshop/Illustratorで行います。</p>
+
+<div class="rg fi">
+<div class="rc r-ai">
+<h4>🤖 Geminiにお任せ</h4>
+<ul>
+<li>ターゲット分析・訴求ポイント整理</li>
+<li>キャッチコピー・掲載文章の複数案生成</li>
+<li>チラシの構成・レイアウト指示書の作成</li>
+<li>イラスト風コンセプト画像の試作</li>
+<li>色替えの簡易シミュレーション（精度に限界あり）</li>
+<li>デザイナーへの制作指示書の作成</li>
+</ul>
+</div>
+<div class="rc r-hu">
+<h4>👤 人間（専門ツール）で行う作業</h4>
+<ul>
+<li>印刷品質のレイアウト作成（Illustrator）</li>
+<li>製品写真の本格的な色替え（Photoshop）</li>
+<li>モデル写真の顔・ポーズの編集（Photoshop AI）</li>
+<li>衣服の構造変換（続き服⇔上下服）</li>
+<li>動画の撮影・編集（Premiere Pro）</li>
+<li>ロゴの正確な再現・配置</li>
+</ul>
+</div>
+</div>
+
+<div class="lim fi">
+<h3>具体的にできないこと</h3>
+<div class="li"><strong>EPS・PSDファイルはGeminiに読み込めない</strong> — 提供いただいた素材はすべてEPS（Illustrator）またはPSD（Photoshop）形式です。Geminiに読み込ませるには、事前にJPGまたはPNGに変換する必要があります。</div>
+<div class="li"><strong>モデルの顔替え・顔の生成は不可</strong> — Geminiは安全上のポリシーで、リアルな人物の顔の生成・差し替えを厳しく制限しています。顔替えが必要な場合はPhotoshop AIの「生成塗りつぶし」機能を使ってください。</div>
+<div class="li"><strong>続き服⇔上下服の衣服構造変換は不可</strong> — つなぎをセパレートに変換するなど、衣服の構造を変える画像編集は、現在のAI画像生成では実用レベルに達していません。</div>
+<div class="li"><strong>ポージング変更は一貫性を保てない</strong> — テキスト指示でのポーズ変更は可能ですが、元画像の製品・モデルとの一貫性は保証されません。</div>
+<div class="li"><strong>完成品レベルの動画生成は不可</strong> — Geminiで作れるのは構成案・台本・絵コンテまでです。映像そのものの制作はPremiere Pro等で行ってください。</div>
+<div class="li"><strong>画像生成は標準品質のみ</strong> — 現在の環境（Business Standard・アドオンなし）では高品質画像モデルは利用できず、標準品質に制限されます。印刷物に使える品質ではありません。</div>
+</div>
+</div></section>
+
+<!-- 3班 実施課題 -->
+<section id="t3task" class="sec"><div class="c">
+<span class="sn" style="background:#ef6c00">3</span><h2 class="st">3班の実施課題</h2>
+
+<div style="margin:16px 0 0;padding:20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#ef6c00;margin-bottom:6px">3班：生産・購買チーム ／ 選択項目：5-12 商材課題の明確化</div>
+<div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5">商品アピール用のパンフレット作成</div>
+<div style="font-size:13px;color:var(--text2);line-height:1.9">
+商品のキャッチコピー、掲載文章、構成案、コンセプト画像を含む販促チラシを作成します。既存のモスアイゴーグル（M40-ME）チラシのような完成物が目標です。Geminiでは「企画・コピー・構成」までを効率化し、最終デザインはPhotoshop/Illustratorで仕上げます。
+</div>
+</div>
+
+<div style="padding:16px 18px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a;margin:16px 0" class="fi">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px">3班から提示された具体的な要望</div>
+<div style="font-size:12px;color:#92400e;line-height:1.8">
+<strong>パターン1：</strong>顔替え ／ 色替え ／ デザイン画<br>
+<strong>パターン2：</strong>背景変更 ／ 顔替え ／ 動画 ／ 色替え ／ デザイン画 ／ ポージング<br>
+<strong>パターン3：</strong>続き服→上下服変換 ／ 上下→続き服変換 ／ 動画 ／ デザイン画 ／ ポージング<br><br>
+→ このうちGeminiで扱えるのは<strong>「デザイン画（コンセプトレベル）」「色替え（簡易試行）」「コピーライティング」</strong>です。顔替え・ポージング・服変換・動画はPhotoshop AI / Premiere Proの領域です。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0" class="fi">
+<div style="padding:16px 18px;background:var(--red-bg);border-radius:var(--rl);border:1px solid #fecaca">
+<div style="font-size:12px;font-weight:600;color:var(--red);margin-bottom:6px">📥 提供データの注意点</div>
+<div style="font-size:12px;color:#991b1b;line-height:1.8">
+提供されたファイルはすべてEPS/PSD形式で、Geminiには直接読み込めません。<br><br>
+<strong>研修前の準備：</strong><br>
+Photoshopで開く →「ファイル」→「書き出し」→「Web用に保存（JPG/PNG）」で変換してください。
+</div>
+</div>
+<div style="padding:16px 18px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">📤 研修での完成物</div>
+<div style="font-size:12px;color:#166534;line-height:1.8">
+<strong>①コピー案：</strong>キャッチコピー＋本文（複数案）<br>
+<strong>②訴求設計：</strong>ターゲット×訴求ポイントの整理<br>
+<strong>③構成案：</strong>レイアウト指示を含む制作指示書<br>
+<strong>④コンセプト画像：</strong>イラスト風の参考ビジュアル<br>
+<strong>⑤制作指示書：</strong>デザイナーへの引き継ぎ文書
+</div>
+</div>
+</div>
+</div></section>
+
+<!-- 3班 全体の流れ -->
+<section class="sec"><div class="c">
+<span class="sn">0</span><h2 class="st">全体の流れ</h2>
+<p class="sd">5つのステップで進めます。STEP 1〜4がGeminiでの作業、STEP 5が人間の仕上げ作業です。</p>
+<div class="flow fi">
+<div class="fi-box"><div class="fn">1</div><div class="fl">訴求<br>設計</div></div>
+<div class="fi-box"><div class="fn">2</div><div class="fl">コピー<br>作成</div></div>
+<div class="fi-box"><div class="fn">3</div><div class="fl">画像<br>試行</div></div>
+<div class="fi-box fi-hl"><div class="fn">4</div><div class="fl">指示書<br>作成</div></div>
+<div class="fi-box fi-hu"><div class="fn">5</div><div class="fl">デザイン<br>仕上げ</div></div>
+</div>
+</div></section>
+
+<!-- 3班 STEP 1 -->
+<section id="t3s1" class="sec"><div class="c">
+<span class="sn">1</span><h2 class="st">商品の訴求設計を行う</h2>
+<p class="sd">既存チラシ（モスアイゴーグル）をアップロードし、同じ訴求構造で新商品のチラシ設計をGeminiに相談します。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">既存チラシを分析＋新商品の訴求設計</span></div>
+<div class="sbd">既存チラシのPDF（またはJPGに変換したもの）をGeminiにアップロードします。</div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t3p1"><span class="cm">※ 既存チラシPDFをアップロードした状態で：</span>
+
+添付は既存の商品チラシです。この構成を参考に、新しい商品のチラシ訴求を設計してください。
+
+<em>【新商品の情報】</em>
+・商品名：（ここに商品名を入力）
+・主な特徴：（特徴を3つ程度）
+・対象ユーザー：（ターゲット）
+・競合との違い：（差別化ポイント）
+
+以下を提案してください：
+①<em>ターゲット別の訴求ポイント</em>（例：作業者向け、購買担当者向け、工場責任者向け）
+②チラシの構成案（上から下の配置順）
+③既存チラシから学べる良い点と改善点<button class="cb" onclick="cp(this,'t3p1')">コピー</button></div></div>
+</div>
+</div></section>
+
+<!-- 3班 STEP 2 -->
+<section id="t3s2" class="sec"><div class="c">
+<span class="sn">2</span><h2 class="st">キャッチコピーと掲載文章を作成する</h2>
+<p class="sd">訴求設計を踏まえて、キャッチコピーと本文を複数案作成します。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">コピー案の大量生成</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t3p2">先ほどの訴求ポイントを踏まえて、チラシ用の文章を作成してください。
+
+①<em>キャッチコピーを10案</em>
+　条件：15文字以内、機能価値が伝わる、ユーザーが自分ごとに感じる表現
+
+②<em>サブコピーを5案</em>
+　条件：30文字程度、キャッチコピーを補足する説明文
+
+③<em>本文を3パターン</em>（各100〜150字）
+　条件：特徴3点を簡潔に紹介する構成
+
+④<em>製品スペック表</em>
+　製品名、型番、寸法、重量、素材、規格を表形式で<button class="cb" onclick="cp(this,'t3p2')">コピー</button></div></div>
+</div>
+</div></section>
+
+<!-- 3班 STEP 3 -->
+<section id="t3s3" class="sec"><div class="c">
+<span class="sn">3</span><h2 class="st">コンセプト画像・色替えを試行する</h2>
+<p class="sd">Geminiの画像生成機能で、チラシに使えるコンセプト画像を試作します。あくまでイメージ確認用です。</p>
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">コンセプト画像の生成</span></div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t3p3">チラシに使用するための<em>コンセプト画像</em>を作成してください。
+
+<em>【条件】</em>
+・清潔感のある白と青を基調とした背景
+・クリーンルーム環境をイメージさせるデザイン
+・製品を中心にした構図
+・テキストを配置するスペースを左側に確保
+・イラスト風のスタイル（写真風ではなく）<button class="cb" onclick="cp(this,'t3p3')">コピー</button></div></div>
+<div class="nt n-w"><span class="ni">⚠️</span><div><strong>人物画像の制限：</strong>リアルな人物写真の生成はポリシーで制限されています。モデル着用イメージが必要な場合は別途撮影してください。</div></div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb b-c">Gemini Chat</span><span class="snm">色替えの試行（精度に限界あり）</span></div>
+<div class="sbd">製品画像（JPGに変換済み）をアップロードして色替えを試みます。</div>
+<div class="pw"><div class="pl">💬 コピーしてそのまま使えます</div>
+<div class="pr" id="t3p3b"><span class="cm">※ 製品画像（JPG/PNG）をアップロードした状態で：</span>
+
+添付した製品画像の<em>色を変更</em>してください。
+
+変更内容：
+・現在の色 →（変更したい色を指定：例「ネイビーブルー」）
+・製品のシルエットや形状はそのまま維持
+・背景は白のまま<button class="cb" onclick="cp(this,'t3p3b')">コピー</button></div></div>
+<div class="ho"><h3>👤 色替えの精度について</h3><p>Geminiの色替えは「大まかなイメージ確認」レベルです。製品の輪郭が崩れたり、色ムラが出ることがあります。正確な色替えが必要な場合は、Photoshopの「色相・彩度」調整やAdobe Fireflyの「生成塗りつぶし」を使ってください。</p></div>
+</div>
+</div></section>
+
+<!-- 3班 STEP 4 -->
+<section id="t3s4" class="sec"><div class="c">
+<span class="sn" style="background:#7c3aed">★</span><h2 class="st">制作指示書を作成してデザイナーに引き渡す</h2>
+<p class="sd">ここまでの成果物（訴求設計・コピー案・コンセプト画像）をすべてまとめ、Photoshop/Illustrator担当にそのまま渡せる制作指示書を作成します。構成レイアウトも指示書内でテキストで指定します。</p>
+<div class="step fi" style="border-color:#7c3aed;border-width:2px">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">Gemini Chat</span><span class="snm">制作指示書の統合出力</span></div>
+<div class="pw"><div class="pl">💬 最終出力用プロンプト — コピーしてそのまま使えます</div>
+<div class="pr" id="t3p5">ここまでに作成した内容をすべてまとめて、デザイナーに渡すための<em>チラシ制作指示書</em>を作成してください。
+
+<em>【含める項目】</em>
+1. 商品情報（商品名、型番、主な特徴、ターゲット）
+2. キャッチコピー（確定版）
+3. サブコピー（確定版）
+4. 本文テキスト
+5. <em>構成レイアウト指示</em>（上から下の配置順を具体的に記載）
+   例：上部＝キャッチコピー＋メインビジュアル、中央＝3つの特徴を横並び、下部＝仕様表＋問い合わせ先
+6. 使用する写真・画像の指示（撮影指示を含む）
+7. カラー指定（メインカラー、サブカラー、アクセントカラー）
+8. フォント指定の希望
+9. 印刷仕様（サイズ、片面/両面、紙質の希望）
+10. 参考資料（既存チラシのどの要素を踏襲するか）
+
+<em>Googleドキュメントにエクスポート</em>してください。<button class="cb" onclick="cp(this,'t3p5')">コピー</button></div></div>
+<div class="ex"><strong>エクスポート：</strong>「共有とエクスポート」→「Googleドキュメントにエクスポート」でドキュメント化。このままPhotoshop/Illustrator担当に共有できます。</div>
+</div>
+</div></section>
+
+<!-- 3班 STEP 5 -->
+<section id="t3s5" class="sec"><div class="c">
+<span class="sn sn-a">5</span><h2 class="st">デザインの仕上げ（人間＋専門ツール）</h2>
+<p class="sd">Geminiの成果物は「企画書・素材」です。ここから先は専門ツールで仕上げます。</p>
+
+<div class="checklist fi">
+<h3>👤 専門ツールでの仕上げチェックリスト</h3>
+<p>
+☐ 制作指示書の内容をIllustratorに展開<br>
+☐ 正式なロゴデータ（.ai/.eps）を配置<br>
+☐ 製品写真をPhotoshopで最終調整（色補正、背景処理）<br>
+☐ 必要に応じてモデル撮影を手配<br>
+☐ キャッチコピー・本文テキストを配置<br>
+☐ 印刷仕様に合わせてCMYK変換・入稿データ作成<br>
+☐ 関係者に校正依頼<br>
+☐ 最終承認後に入稿
+</p>
+</div>
+
+<div style="padding:16px 18px;background:var(--blue-bg);border-radius:var(--rl);border:1px solid #bfdbfe;margin:16px 0" class="fi">
+<div style="font-size:13px;font-weight:500;color:var(--blue);margin-bottom:6px">研修で伝えるべきメッセージ</div>
+<div style="font-size:12px;color:#1e40af;line-height:1.8">
+Geminiの価値は「完成品を作ること」ではなく「制作の前工程を劇的に速くすること」にあります。<br><br>
+従来：企画会議 → ラフ案手書き → コピー検討 → デザイナーに口頭説明 → 何度もやり直し<br>
+Gemini活用：<strong>企画〜コピー〜構成〜指示書をGeminiで一気に作成 → デザイナーに完成度の高い指示書を渡せる → やり直しが減る</strong>
+</div>
+</div>
+</div></section>
+
+<!-- 3班 他のAIツール3パターン -->
+<section id="t3s6" class="sec"><div class="c">
+<span class="sn" style="background:var(--green)">+</span><h2 class="st">他のAIツールでの実装パターン（3つの選択肢）</h2>
+<p class="sd">研修ではGeminiで「企画・コピー・構成」までを扱いますが、画像編集や本格的な制作には別の専門AIツールが適しています。今後の本格運用を検討する際の3つのパターンを紹介します。</p>
+
+<!-- パターンA -->
+<div class="step fi" style="border:2px solid var(--green)">
+<div class="step-h">
+<span class="sb" style="background:var(--green-bg);color:var(--green);font-size:11px">パターンA ⭐ 既存環境活用</span>
+<span class="snm">Adobe Photoshop + Firefly生成塗りつぶし</span>
+</div>
+<div class="step-bd">既にお持ちのPhotoshop環境に組み込まれたAI機能「生成塗りつぶし<sup style="font-size:9px">※1</sup>」を活用します。<strong>PSDファイルをそのまま編集</strong>でき、製品の色変更・背景変更・画像拡張が業務レベルの精度で実現可能。2026年からはGemini 3 (Nano Banana Pro)やFLUX Kontext Pro<sup style="font-size:9px">※2</sup>といった外部モデルも選択でき、表現の幅が広がっています。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Adobe Creative Cloud（Photoshop・Illustrator）+ 生成クレジット</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">追加コスト</td><td style="padding:6px 10px;border:1px solid var(--border)">既にお持ちなら追加コスト不要（生成クレジットは月間付与）</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">既存のPSDを活かしたい／印刷品質の編集が必要／3班の現状に最適</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">PSDをそのまま編集、商用利用安全、レイヤー編集対応</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">人物画像（顔・ポーズ変更）には専門技術が必要、生成クレジット枠あり</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※1 生成塗りつぶし：Photoshopで選択範囲をAIに自然に書き換えてもらう機能。「青いシャツを赤くして」のような指示で部分編集が可能。<br>※2 Nano Banana Pro / FLUX Kontext Pro：高品質な画像編集AIモデル。Photoshopから選択して利用できます。</div></div>
+</div>
+
+<!-- パターンB -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--blue-bg);color:var(--blue);font-size:11px">パターンB 全工程一気通貫</span>
+<span class="snm">Canva AI + 汎用AI（Claude/ChatGPT/Gemini）</span>
+</div>
+<div class="step-bd">デザイン素人でも使えるグラフィック制作ツール「Canva<sup style="font-size:9px">※3</sup>」に内蔵されたAI機能を活用。<strong>テンプレート選択 → コピー作成（汎用AI）→ レイアウト → 画像生成 → 出力</strong>まで1つのツール内で完結します。Photoshop/Illustratorほどの精密さはありませんが、社内資料やWeb告知用には十分な品質です。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Canva Pro（月額制）+ 汎用AI（Gemini等）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">追加コスト</td><td style="padding:6px 10px;border:1px solid var(--border)">Canva Pro：月額1,500円程度</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">デザイン専門スタッフがいない／簡易チラシを内製したい／SNS告知用</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">テンプレート豊富、初心者でも扱える、ブラウザだけで完結</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">印刷品質はPhotoshopに劣る、ブランドの一貫性管理は別途必要</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※3 Canva：オーストラリア発のオンラインデザインツール。豊富なテンプレートとAI機能で、デザイン経験のない人でもチラシ・SNS画像・プレゼンを作成できます。</div></div>
+</div>
+
+<!-- パターンC -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--amber-bg);color:var(--amber);font-size:11px">パターンC 動画対応</span>
+<span class="snm">Runway / Veo 3.1（動画制作AI）</span>
+</div>
+<div class="step-bd">3班の要望にあった<strong>「商品アピール用の動画」</strong>に対応する選択肢です。Runway Gen-4.5<sup style="font-size:9px">※4</sup>やGoogle Veo 3.1<sup style="font-size:9px">※5</sup>は2026年現在、商用利用可能な動画AI最高峰のツール。短尺のプロモーション動画（SNS用、展示会用）であれば、外注せずに内製できる品質に達しています。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Runway（月15ドル〜）または Google AI Pro（月19.99ドル）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">追加コスト</td><td style="padding:6px 10px;border:1px solid var(--border)">月額2,000〜3,000円程度</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">SNSや展示会用の短尺動画を内製したい／動画外注コストを削減したい</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">外注すれば数十万円の動画が数千円で内製可能、4K対応、音声同時生成</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">テレビCMレベルの長尺・高品質はまだ難しい、プロンプト技術が必要</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※4 Runway Gen-4.5：商用動画AIの代表的サービス。Google Veoモデルも統合されており、Standardプランから利用可能。<br>※5 Google Veo 3.1：Googleが開発した動画生成AI。ネイティブ4K対応で音声同時生成が可能。</div></div>
+</div>
+</div></section>
+
+</div>
+
+<!-- ===== T3: 生産計画立案 ===== -->
+<div class="tp" id="t3">
+
+<nav class="snav"><div class="c"><div class="sni">
+<a href="#r4" class="snl">課題の正体</a>
+<a href="#t4task" class="snl">やりたいこと</a>
+<a href="#t4rule" class="snl">6つの計算ルール</a>
+<a href="#t4why" class="snl">なぜAIだけでは困難か</a>
+<a href="#t4sol" class="snl">3つの実装パターン</a>
+<a href="#t4step" class="snl">推奨ステップ</a>
+</div></div></nav>
+
+<!-- 生産計画 課題の正体 -->
+<section id="r4" class="sec"><div class="c">
+<span class="sn" style="background:#7c3aed">!</span><h2 class="st">最初に確認：この課題の正体</h2>
+<p class="sd">この依頼は、これまでの研修課題とは性質が違います。<strong>生成AI（Gemini等）が得意な「文章作成・要約・分析」とは別の領域</strong>で、本来は「制約付き最適化問題」と呼ばれる数学的な計算分野です。</p>
+
+<div class="rg fi">
+<div class="rc r-ai">
+<h4>🤖 AIにお任せできること</h4>
+<ul>
+<li>6つのルールをコード（プログラム）に翻訳</li>
+<li>Excelソルバー<sup style="font-size:9px">※1</sup>の設定方法を提案</li>
+<li>計算結果の妥当性チェック</li>
+<li>担当者への手順書の自動生成</li>
+<li>例外パターンへの対応方法を相談</li>
+</ul>
+<div style="font-size:10px;color:var(--blue);margin-top:8px;opacity:0.8">※1 ソルバー：複数の条件を満たす最適解を計算するExcelの標準機能</div>
+</div>
+<div class="rc r-hu">
+<h4>👤 人間が行う作業</h4>
+<ul>
+<li>最終的な生産数の確定と承認</li>
+<li>例外的な状況（緊急受注など）の判断</li>
+<li>営業情報・市場動向の反映</li>
+<li>計算結果の業務妥当性チェック</li>
+<li>関係部署との調整・合意形成</li>
+</ul>
+</div>
+</div>
+
+<div class="lim fi">
+<h3>具体的にできないこと（重要）</h3>
+<div class="li"><strong>Geminiのプロンプトだけで全自動化は不可</strong> — 約1,500行×198列という膨大なデータに対し、毎回正確な数値計算を実行することは生成AIの構造上できません。実行ごとに結果がブレるリスクがあります。</div>
+<div class="li"><strong>「いい感じに作って」と指示しても完成しない</strong> — 在庫制約・ロット制約・キャパシティ制約という<em>厳密な計算ルール</em>を守る必要があります。生成AIは文章生成は得意でも、複雑な条件下での厳密な数値最適化は不得意です。</div>
+<div class="li"><strong>1枚の誤差が業務リスクに直結</strong> — 生産数を1枚でも間違えれば、欠品（販売機会損失）または過剰在庫（在庫保管コスト増）が発生します。AIの「だいたい合っている」では業務にならない領域です。</div>
+<div class="li"><strong>研修の範囲を超える案件</strong> — 通常のAI活用研修で扱う内容ではなく、専用のシステム構築または別プロジェクトとして検討するのが現実的です。</div>
+</div>
+</div></section>
+
+<!-- 生産計画 やりたいこと -->
+<section id="t4task" class="sec"><div class="c">
+<span class="sn" style="background:#7c3aed">★</span><h2 class="st">お問い合わせ内容の要約</h2>
+
+<div style="margin:16px 0 0;padding:20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#7c3aed;margin-bottom:6px">別途お問い合わせ ／ ユニフォーム生産計画の自動化</div>
+<div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5">ユニフォームの生産計画立案をAIで自動化したい</div>
+<div style="font-size:13px;color:var(--text2);line-height:1.9">
+ガードナー様の主事業であるユニフォームの企画・生産・販売のうち、<strong>「いつ・どの品番を・何枚生産するか」という生産計画の立案部分をAIで自動化したい</strong>というご相談です。提供いただいた『生産計画手順』に記載されている①〜⑥の手順をAIで実行し、『生産計画表』（約1,500行×198列）を完成させることが目標です。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0" class="fi">
+<div style="padding:16px 18px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px">💡 現在の作業方法（Before）</div>
+<div style="font-size:12px;color:#92400e;line-height:1.8">
+担当者が手作業で実施：<br>
+・過去2年の販売実績を確認<br>
+・今年の出荷見込みを予測<br>
+・在庫推移を計算<br>
+・基準在庫を下回らないか確認<br>
+・工場のロット・キャパシティを考慮<br>
+・色違い品番をまとめて配分<br>
+・月10,000枚分を埋める
+</div>
+</div>
+<div style="padding:16px 18px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">📤 目指す状態（After）</div>
+<div style="font-size:12px;color:#166534;line-height:1.8">
+自動化された生産計画表：<br>
+・基準在庫を下回らない<br>
+・工場のロット単位を満たす<br>
+・月間キャパシティ10,000枚を守る<br>
+・色違い品番がまとめられている<br>
+・全品番に対して計画が立つ<br><br>
+担当者は最終承認だけ
+</div>
+</div>
+</div>
+</div></section>
+
+<!-- 6つのルール -->
+<section id="t4rule" class="sec"><div class="c">
+<span class="sn">①</span><h2 class="st">6つの計算ルール（生産計画手順）</h2>
+<p class="sd">手順書に書かれている①〜⑥のルールを、初心者にもわかるように解説します。</p>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">ルール①</span><span class="snm">基準在庫を下回らない</span></div>
+<div class="step-bd">各品番には「基準在庫数<sup style="font-size:9px">※2</sup>」が設定されており、2ヶ月ごとに記録される在庫数がこの値を下回らないように生産する必要があります。<br><strong>例：</strong>LE1105-1という商品は、2月末時点で在庫152枚を下回らないよう、2月中に32枚生産する必要がある。</div>
+<div class="nt n-i"><span class="ni">📘</span><div>※2 基準在庫数：「これを下回ると欠品リスクが高まる」という社内ルールで決められた最低在庫量。</div></div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">ルール②</span><span class="snm">生産ロット<sup style="font-size:9px">※3</sup>の最小単位</span></div>
+<div class="step-bd">工場で一度に生産できる最小枚数が決まっています。<br>・<strong>海外工場</strong>：500枚以上にまとめないと生産不可<br>・<strong>国内工場</strong>：50枚以上にまとめないと生産不可<br>→ 32枚必要だとしても、海外工場で作るなら500枚まで増やす必要がある</div>
+<div class="nt n-i"><span class="ni">📘</span><div>※3 生産ロット：1回の生産で作る枚数の単位。少なすぎると製造コストが合わなくなるため、最低数量が決まっています。</div></div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">ルール③</span><span class="snm">色違い品番も同じロジックで計算</span></div>
+<div class="step-bd">LE1105-1（白）だけでなく、LE1105-2（青）など色違いの品番も、それぞれ独立に①②のルールで必要数を計算します。</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">ルール④</span><span class="snm">同デザインの色違いはまとめて生産</span></div>
+<div class="step-bd">デザインが同じで色だけ違う品番（例：LE1105-1とLE1105-2）は、生産効率を上げるため<strong>同じ月にまとめて生産</strong>します。別々の月に分けると工場の段取り替えが増えてコスト増になるためです。</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">ルール⑤</span><span class="snm">工場の月間キャパシティを埋める</span></div>
+<div class="step-bd">海外工場の月間生産能力は<strong>10,000枚</strong>。生産予定がゼロの月（例：11月）から順に、①〜④のルールで他の品番を割り当て、10,000枚に近づけます。</div>
+<div class="nt n-w"><span class="ni">⚠️</span><div>ここが最も難しい部分。「在庫制約を満たしつつ、色違いをまとめながら、月10,000枚に近づける」という<strong>複数条件を同時に満たす最適配分</strong>が必要です。</div></div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:#f0ebff;color:#7c3aed">ルール⑥</span><span class="snm">翌月も同様に繰り返す</span></div>
+<div class="step-bd">11月の10,000枚が決まったら、12月も①〜⑤を繰り返して埋めます。これを全月分行うことで、年間の生産計画表が完成します。</div>
+</div>
+</div></section>
+
+<!-- なぜAIだけでは困難か -->
+<section id="t4why" class="sec"><div class="c">
+<span class="sn" style="background:var(--red)">?</span><h2 class="st">なぜGeminiやChatGPTだけでは難しいのか</h2>
+<p class="sd">生成AIが苦手な領域の典型例だからです。理由を3つに分けて説明します。</p>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--red-bg);color:var(--red)">理由1</span><span class="snm">生成AIは「電卓」ではなく「推測マシン」</span></div>
+<div class="step-bd">Gemini・ChatGPT・Claudeなどの生成AIは、次に来る単語の確率を計算して文章を生成しています。1+1のような単純計算なら正解しますが、<strong>1,500行×198列のデータに対して厳密な数値計算を毎回正確に行うことは構造的にできません</strong>。実行するたびに微妙に異なる答えが出る可能性があります。</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--red-bg);color:var(--red)">理由2</span><span class="snm">「制約付き最適化問題<sup style="font-size:9px">※4</sup>」は数学的に解くべき領域</span></div>
+<div class="step-bd">今回のルール①〜⑥は、すべて同時に守らなければならない制約条件です。これは数学的には「複数の条件を満たす最適解を見つける問題」で、本来はExcelのソルバー機能や、ORツール<sup style="font-size:9px">※5</sup>と呼ばれる専用の数値計算ライブラリで解くものです。</div>
+<div class="nt n-i"><span class="ni">📘</span><div>※4 制約付き最適化問題：複数の条件（制約）を満たしながら、目的（例：在庫不足を避ける）を達成する最良の答えを探す数学の問題。<br>※5 ORツール：Operations Research（オペレーションズ・リサーチ）の略。生産計画・物流・スケジューリングなどの最適化を扱う学問分野で使うツール。</div></div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--red-bg);color:var(--red)">理由3</span><span class="snm">前の結果が次に影響する「反復処理」</span></div>
+<div class="step-bd">11月の計画が決まったら、その結果（在庫推移）が12月の計画に影響します。生成AIにこの<strong>連鎖的な計算を最後まで正確に維持させるのは困難</strong>です。途中でルールを忘れたり、過去の計算結果と矛盾する答えを出したりすることがあります。</div>
+</div>
+
+<div style="background:linear-gradient(135deg,var(--amber-bg),#fff7ed);border-radius:var(--rl);padding:18px 20px;margin:20px 0;border:1px solid #fde68a" class="fi">
+<div style="font-size:14px;font-weight:600;color:var(--amber);margin-bottom:8px">📌 結論</div>
+<div style="font-size:13px;color:#92400e;line-height:1.8">
+この課題は、<strong>「AIにデータを処理させる」ではなく「AIに計算プログラムを作らせる」</strong>方向に発想を切り替える必要があります。AIには「6つのルールを実行するプログラムを書いて」と依頼し、実際の計算はそのプログラムに任せる。これが現実解です。
+</div>
+</div>
+</div></section>
+
+<!-- 3つの実装パターン -->
+<section id="t4sol" class="sec"><div class="c">
+<span class="sn" style="background:var(--green)">✓</span><h2 class="st">3つの現実的な実装パターン</h2>
+<p class="sd">予算・スキル・既存環境に応じて、3つのアプローチがあります。</p>
+
+<!-- パターンA -->
+<div class="step fi" style="border:2px solid var(--green)">
+<div class="step-h">
+<span class="sb" style="background:var(--green-bg);color:var(--green);font-size:11px">パターンA ⭐ 最短ルート</span>
+<span class="snm">Excelソルバー + Claude for Excel</span>
+</div>
+<div class="step-bd">既存のExcel環境にClaude for Excel<sup style="font-size:9px">※6</sup>を追加。Claudeに「6つのルールをExcelソルバーの設定に翻訳して」と依頼し、Excel標準機能で最適化を実行します。</div>
+
+<table class="summary-table" style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Microsoft 365（Excel）＋ Claude for Excelアドイン（月額制）</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">所要期間</td><td style="padding:6px 10px;border:1px solid var(--border)">数週間〜1ヶ月（試行錯誤含む）</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">Excelに慣れた担当者がいる／既存ファイルを活かしたい</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">既存ファイルをそのまま活用可能。社内に展開しやすい</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">ソルバーの設定には試行錯誤が必要。完全自動化は難しい</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※6 Claude for Excel：Anthropic社のAI「Claude」をExcelに直接統合するアドイン機能。Excel上で日本語で指示するだけで、データ分析・数式作成・グラフ作成が可能。</div></div>
+</div>
+
+<!-- パターンB -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--blue-bg);color:var(--blue);font-size:11px">パターンB 本格構築</span>
+<span class="snm">Python + ORツール + Claude Code</span>
+</div>
+<div class="step-bd">Pythonというプログラミング言語と、PuLP<sup style="font-size:9px">※7</sup>やOR-Tools<sup style="font-size:9px">※8</sup>という最適化ライブラリを使ってシステム構築します。ClaudeまたはCursor等のAIに「この6つのルールで最適化プログラムを書いて」と依頼することで、コードを生成できます。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">Python実行環境＋AI（Claude Code等）＋プログラミング知識</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">所要期間</td><td style="padding:6px 10px;border:1px solid var(--border)">1〜3ヶ月（要件定義〜検証）</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">本格的に運用したい／社内にIT担当者がいる／外部ベンダーに依頼可能</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">大規模・高速処理が可能。完全自動化に近づける</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">構築コスト大。担当者がPythonを扱えないとブラックボックス化</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※7 PuLP：Pythonで使える最適化問題を解くためのライブラリ。<br>※8 OR-Tools：Googleが提供する産業用最適化ライブラリ。物流・生産・スケジューリングなどに広く使われる。</div></div>
+</div>
+
+<!-- パターンC -->
+<div class="step fi">
+<div class="step-h">
+<span class="sb" style="background:var(--amber-bg);color:var(--amber);font-size:11px">パターンC 王道</span>
+<span class="snm">専用の生産管理パッケージを導入</span>
+</div>
+<div class="step-bd">SAP、Oracle、または国内ベンダーの生産管理システム（MRP<sup style="font-size:9px">※9</sup>）を導入します。本来この種の業務はこれらの専用システムが解決してきた領域です。AIを使うより、実績のあるパッケージを活用する方が長期的には安定します。</div>
+
+<table style="font-size:12px;margin:12px 0;width:100%;border-collapse:collapse">
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;width:120px;border:1px solid var(--border)">必要なもの</td><td style="padding:6px 10px;border:1px solid var(--border)">パッケージライセンス費用＋導入コンサル費用</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">所要期間</td><td style="padding:6px 10px;border:1px solid var(--border)">半年〜1年（要件定義〜本稼働）</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">向いている方</td><td style="padding:6px 10px;border:1px solid var(--border)">業務全体をシステム化したい／中長期で投資できる</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600;background:var(--bg2);border:1px solid var(--border)">メリット</td><td style="padding:6px 10px;border:1px solid var(--border)">実績豊富で安定。ベンダーサポートあり</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:6px 10px;font-weight:600;border:1px solid var(--border)">注意点</td><td style="padding:6px 10px;border:1px solid var(--border)">初期投資が大きい。AIブームに乗った話題性は薄い</td></tr>
+</table>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※9 MRP：Material Requirements Planning（資材所要量計画）の略。製造業の生産計画・在庫管理を支援するシステムの総称。</div></div>
+</div>
+</div></section>
+
+<!-- 推奨ステップ -->
+<section id="t4step" class="sec"><div class="c">
+<span class="sn" style="background:var(--green)">→</span><h2 class="st">弊社からの推奨ステップ</h2>
+<p class="sd">いきなり全自動化を目指さず、段階的に進めることをお勧めします。</p>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--green-bg);color:var(--green)">STEP 1</span><span class="snm">小さく試す：1品番・1ヶ月分から</span></div>
+<div class="step-bd">最初は1つの品番（例：LE1105-1）の1ヶ月分だけで、ルール①〜⑤の自動計算を試します。AIに「この品番の2月生産数を、ルール①②に従って計算して」と依頼。<strong>計算ロジックが正しいか検証</strong>することが目的です。</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--green-bg);color:var(--green)">STEP 2</span><span class="snm">範囲を広げる：色違い対応・複数品番</span></div>
+<div class="step-bd">ルール③④（色違いをまとめる）を含めて、複数の品番グループで計算します。<strong>同デザインの色違いがまとめて配分されるか</strong>を確認します。</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--green-bg);color:var(--green)">STEP 3</span><span class="snm">月単位の最適化：キャパシティ制約</span></div>
+<div class="step-bd">ルール⑤（月間10,000枚キャパシティ）を加えて、1ヶ月分の生産計画全体を作成します。ここが最も難しい部分で、Excelソルバーまたは最適化プログラムが必要になります。</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--green-bg);color:var(--green)">STEP 4</span><span class="snm">年間計画：12ヶ月分への展開</span></div>
+<div class="step-bd">ルール⑥（翌月への反復）を加えて、年間の生産計画表を完成させます。担当者は最終承認だけで済むようになります。</div>
+</div>
+
+<div class="checklist fi">
+<h3>👤 担当者の最終チェック項目</h3>
+<p>
+☐ 計算された生産数で、本当に欠品が起こらないか確認<br>
+☐ 緊急受注・営業情報など、AIが知らない情報を反映<br>
+☐ 工場側の都合（休業日・特殊オーダー）と整合性確認<br>
+☐ 過去の傾向（季節要因など）と比較<br>
+☐ 関係部署（営業・生産・物流）との合意<br>
+☐ 最終承認
+</p>
+</div>
+
+<div style="background:linear-gradient(135deg,var(--blue-bg),var(--accent-l));border-radius:var(--rl);padding:18px 20px;margin:20px 0;border:1px solid #bfdbfe" class="fi">
+<div style="font-size:14px;font-weight:600;color:var(--blue);margin-bottom:8px">📝 最後にお伝えしたいこと</div>
+<div style="font-size:13px;color:#1e40af;line-height:1.8">
+このご依頼は、生成AIの「魔法のような全自動化」のイメージとは少し違う、地に足のついた取り組みが必要な領域です。<br><br>
+ただし、適切なアプローチ（パターンA〜C）を選べば実現可能性は十分にあります。研修の枠を超えるテーマのため、<strong>別プロジェクトとして要件定義から進めることをお勧めします</strong>。まずは小さく試して、効果を確認しながら範囲を広げていく進め方が安全です。
+</div>
+</div>
+</div></section>
+
+</div>
+
+<footer class="footer"><div class="c">Gemini研修 活用ガイド｜株式会社ガードナー様</div></footer>
+
+<script>
+function showT(i){document.querySelectorAll('.ttab').forEach((t,j)=>t.classList.toggle('a',j===i));document.querySelectorAll('.tp').forEach((p,j)=>p.classList.toggle('a',j===i));window.scrollTo({top:document.querySelector('.ttabs').offsetTop-10,behavior:'smooth'})}
+function cp(b,id){const e=document.getElementById(id);let t=e.innerText.replace(/コピー(しました)?/g,'').trim();const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');b.textContent='コピーしました';b.classList.add('ok');setTimeout(()=>{b.textContent='コピー';b.classList.remove('ok')},1800)}catch(err){try{navigator.clipboard.writeText(t).then(()=>{b.textContent='コピーしました';b.classList.add('ok');setTimeout(()=>{b.textContent='コピー';b.classList.remove('ok')},1800)})}catch(e2){b.textContent='手動でコピーしてください'}}document.body.removeChild(ta)}
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.1});document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
