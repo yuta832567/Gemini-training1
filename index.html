@@ -30,6 +30,7 @@ body{font-family:var(--f);color:var(--text);background:var(--bg);line-height:1.8
 .ttab[data-color="2"].a{background:#26a69a}
 .ttab[data-color="3"].a{background:#ef6c00}
 .ttab[data-color="4"].a{background:#7c3aed}
+.ttab[data-color="5"].a{background:#0d9488}
 .ttab .ttab-label{font-size:10px;font-weight:500;opacity:0.7;display:block;margin-bottom:2px}
 .ttab .ttab-main{font-size:13px;font-weight:600;display:block}
 .ttab.dis{color:#ccc;cursor:default;pointer-events:none}
@@ -138,12 +139,13 @@ body{font-family:var(--f);color:var(--text);background:var(--bg);line-height:1.8
 </header>
 
 <div class="c">
-<div class="tab-hint">下のタブをクリックして、各班・各課題のガイドに切り替えてご覧ください</div>
+<div class="tab-hint">下のタブをクリックして、各班・各課題のガイドに切り替えてご覧ください（全5タブ）</div>
 <div class="ttabs">
 <button class="ttab a" data-color="1" onclick="showT(0)"><span class="ttab-label">1班</span><span class="ttab-main">商品管理・総務</span></button>
 <button class="ttab" data-color="2" onclick="showT(1)"><span class="ttab-label">2班</span><span class="ttab-main">営業</span></button>
 <button class="ttab" data-color="3" onclick="showT(2)"><span class="ttab-label">3班</span><span class="ttab-main">生産・購買</span></button>
 <button class="ttab" data-color="4" onclick="showT(3)"><span class="ttab-label">別件</span><span class="ttab-main">生産計画立案</span></button>
+<button class="ttab" data-color="5" onclick="showT(4)"><span class="ttab-label">発展</span><span class="ttab-main">他の業務課題</span></button>
 </div>
 </div>
 
@@ -1298,6 +1300,13 @@ Gemini活用：<strong>企画〜コピー〜構成〜指示書をGeminiで一気
 <span class="sn" style="background:var(--green)">✓</span><h2 class="st">3つの現実的な実装パターン</h2>
 <p class="sd">予算・スキル・既存環境に応じて、3つのアプローチがあります。</p>
 
+<div style="padding:14px 16px;background:#ccfbf1;border-radius:var(--rl);margin:0 0 16px;border:1px solid #5eead4" class="fi">
+<div style="font-size:13px;font-weight:600;color:#0f766e;margin-bottom:6px">💡 御社の環境（Google Workspace）で始める場合</div>
+<div style="font-size:12px;color:#134e4a;line-height:1.8">
+パターンA・BはMicrosoft 365やPython環境が前提ですが、<strong>Google Workspace内だけで始める</strong>ことも可能です。その場合は<strong>「Gemini + Google Apps Script」</strong>で最適化プログラムを作成します（タブ「他の業務課題」の課題①と同じ考え方）。ただし、複雑な最適化計算は専門的なため、まずは小規模な範囲で試し、必要に応じて下記パターンへ拡張する進め方が現実的です。
+</div>
+</div>
+
 <!-- パターンA -->
 <div class="step fi" style="border:2px solid var(--green)">
 <div class="step-h">
@@ -1398,6 +1407,322 @@ Gemini活用：<strong>企画〜コピー〜構成〜指示書をGeminiで一気
 <div style="font-size:13px;color:#1e40af;line-height:1.8">
 このご依頼は、生成AIの「魔法のような全自動化」のイメージとは少し違う、地に足のついた取り組みが必要な領域です。<br><br>
 ただし、適切なアプローチ（パターンA〜C）を選べば実現可能性は十分にあります。研修の枠を超えるテーマのため、<strong>別プロジェクトとして要件定義から進めることをお勧めします</strong>。まずは小さく試して、効果を確認しながら範囲を広げていく進め方が安全です。
+</div>
+</div>
+</div></section>
+
+</div>
+
+<!-- ===== T4: 発展課題（FU対象） ===== -->
+<div class="tp" id="t4">
+
+<nav class="snav"><div class="c"><div class="sni">
+<a href="#fu-intro" class="snl">全体像</a>
+<a href="#fu1" class="snl">①送り状変換</a>
+<a href="#fu2" class="snl">②価格情報</a>
+<a href="#fu3" class="snl">③見積書作成</a>
+<a href="#fu4" class="snl">④案件管理</a>
+<a href="#fu5" class="snl">⑤動画制作</a>
+<a href="#fu-step" class="snl">優先順位</a>
+</div></div></nav>
+
+<!-- 全体像 -->
+<section id="fu-intro" class="sec"><div class="c">
+<span class="sn" style="background:#0d9488">!</span><h2 class="st">研修では扱わない他の業務課題</h2>
+<p class="sd">皆さまから事前にご提示いただいた業務課題のうち、研修で扱わなかったものを<strong>フォローアップMTG（研修後の個別相談3回）</strong>で深堀りしていきます。今回は5つの課題が対象です。</p>
+
+<div style="padding:18px 20px;background:linear-gradient(135deg,#ccfbf1,#a7f3d0);border-radius:var(--rl);margin:16px 0;border:1px solid #5eead4" class="fi">
+<div style="font-size:14px;font-weight:600;color:#0f766e;margin-bottom:8px">💡 重要なお知らせ：追加投資なしで始められます</div>
+<div style="font-size:13px;color:#134e4a;line-height:1.8">
+御社は現在<strong>Google Workspace Business Standardプラン</strong>をご契約いただいているため、5つの課題のうち<strong>4つは既存のWorkspace環境内（追加コストなし）で着手可能</strong>です。<br><br>
+これまで「AIで業務改善するには新しいツールが必要」と思われがちでしたが、実際には<strong>Geminiと既存ツールの組み合わせ</strong>で多くのことが実現できます。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0" class="fi">
+<div style="padding:14px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:11px;font-weight:600;color:var(--green);margin-bottom:6px">✅ Workspace内で完結（追加コストなし）</div>
+<div style="font-size:12px;color:#166534;line-height:1.8">
+①送り状フォーマット変換 / 棚卸データ作成<br>
+②価格改定情報まとめ<br>
+③見積依頼書から見積書の自動作成（部分的）<br>
+④取引中案件整理とプロセス提案
+</div>
+</div>
+<div style="padding:14px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a">
+<div style="font-size:11px;font-weight:600;color:var(--amber);margin-bottom:6px">⚠️ 追加ツール検討が必要</div>
+<div style="font-size:12px;color:#92400e;line-height:1.8">
+⑤商品アピール動画作成<br><br>
+※Google Vids<sup style="font-size:9px">※1</sup>で簡易版は作れますが、本格的なプロモ動画には専門ツールが必要
+</div>
+</div>
+</div>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※1 Google Vids：Workspace Business Standardに含まれる動画作成ツール。スライドベースで簡単に動画が作れますが、テレビCMのような高品質映像は作れません。</div></div>
+
+<div style="padding:14px 16px;background:var(--bg2);border-radius:var(--rl);margin:16px 0;font-size:12px;color:var(--text2);line-height:1.7">
+<strong style="color:var(--text);font-weight:600">なぜWorkspace内で完結できるのか？</strong><br>
+Google Workspaceには、AI機能（Gemini）に加え、<strong>Apps Script<sup style="font-size:9px">※2</sup></strong>（自動化プログラム）や<strong>NotebookLM<sup style="font-size:9px">※3</sup></strong>（資料検索AI）など、業務自動化に必要な機能が揃っています。これらを組み合わせることで、外部ツールに頼らずに多くの業務改善が可能です。
+</div>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※2 Apps Script（GAS）：Google Workspaceで使える無料のプログラミング機能。Excelのマクロのようなもので、Geminiにコードを書いてもらえば、プログラミング未経験でも使えます。<br>※3 NotebookLM：Googleの資料検索AI。PDFやドキュメントをアップロードすると、その内容に基づいて質問に答えてくれます。Workspaceユーザーは無料で利用可能。</div></div>
+</div></section>
+
+<!-- 課題① 送り状変換 -->
+<section id="fu1" class="sec"><div class="c">
+<span class="sn" style="background:#5c6bc0">1</span><h2 class="st">課題① 送り状フォーマット変換 ／ 棚卸データ作成</h2>
+
+<div style="margin:16px 0;padding:18px 20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;color:#5c6bc0;margin-bottom:6px">1班 ／ 商品管理・総務チーム</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:8px;line-height:1.5">受注データを送り状ソフトのフォーマットに自動変換／または入庫段ボール記載内容を棚卸データ化</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">
+基幹システムから出力される受注データ（約1,500行）を、送り状印刷ソフト（e飛伝Ⅲ等）が読み込めるCSV形式に自動変換したい。または、入庫段ボール記載内容をデータ化して棚卸用に活用したい。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0" class="fi">
+<div style="padding:14px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">✅ Workspace内でできる範囲：100%</div>
+<div style="font-size:11px;color:#166534;line-height:1.7">
+Google Apps Scriptで変換プログラムを構築可能。一度作れば毎日でも実行可能で、コストはゼロ。
+</div>
+</div>
+<div style="padding:14px;background:var(--red-bg);border-radius:var(--rl);border:1px solid #fecaca">
+<div style="font-size:12px;font-weight:600;color:var(--red);margin-bottom:6px">❌ Gemini単体では困難な理由</div>
+<div style="font-size:11px;color:#7f1d1d;line-height:1.7">
+1,500行のデータを毎回ブレなく変換するのは確率的処理のため不可能。必ずプログラム化が必要。
+</div>
+</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--accent-l);color:var(--accent)">推奨アプローチ</span><span class="snm">Gemini + Apps Scriptで自動変換システムを構築</span></div>
+<div class="step-bd">Gemini Chatに「送り状ソフト用のCSV変換プログラムをApps Scriptで書いて」と依頼。生成されたコードをスプレッドシートのスクリプトエディタに貼り付けて実行するだけで、変換処理が自動化されます。<strong>プログラミング未経験でも、Geminiがコードと使い方を教えてくれるので始められます。</strong></div>
+
+<div style="margin:10px 0;padding:12px 14px;background:var(--bg2);border-radius:var(--r);font-size:12px;line-height:1.7;color:var(--text)">
+<strong>具体的な手順：</strong><br>
+1. 受注データのスプレッドシートを開く<br>
+2. 「拡張機能」→「Apps Script」をクリック<br>
+3. Geminiに変換ルールを伝えてコードを生成してもらう<br>
+4. 生成されたコードを貼り付けて実行<br>
+5. <strong>初回は「承認」画面が出るので、内容を確認して許可</strong><br>
+6. 変換結果のCSVが自動で書き出される
+</div>
+
+<div class="nt n-w"><span class="ni">⚠️</span><div><strong>初心者がつまずきやすいポイント：</strong>初回実行時に「このアプリは確認されていません」という警告画面が出ます。これは自分で作ったプログラムなので問題ありませんが、不安な場合はIT担当者に確認してから進めてください。</div></div>
+
+<div class="nt n-ng"><span class="ni">🔒</span><div><strong>セキュリティ上の重要な注意：</strong>Geminiにコードを依頼する際、実際の顧客名・住所などの個人情報は貼り付けないでください。「A列に届け先名、B列に住所」のように<strong>データの構造だけ</strong>を伝えれば十分です。実データはプログラムが完成してから処理します。</div></div>
+
+<div class="nt n-i"><span class="ni">💡</span><div><strong>毎回同じ品質にするコツ：</strong>Business StandardではGemの「カスタムAI<sup style="font-size:9px">※</sup>」機能が使えます。「GASコード作成専門」のGemを1つ作っておくと、毎回同じルールで安定したコードが得られます。<br><span style="font-size:10px">※ Gem：特定の用途に特化させた自分専用のAIアシスタント。一度設定すれば繰り返し使えます。</span></div></div>
+</div>
+</div></section>
+
+<!-- 課題② 価格情報 -->
+<section id="fu2" class="sec"><div class="c">
+<span class="sn" style="background:#26a69a">2</span><h2 class="st">課題② 価格改定／変動時の最新情報まとめ</h2>
+
+<div style="margin:16px 0;padding:18px 20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;color:#26a69a;margin-bottom:6px">2班 ／ 営業チーム</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:8px;line-height:1.5">品番・品名を入力すると、現在の単価、過去の改定履歴、製品仕様が分かる仕組み</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">
+現在は、過去メール検索＋Google Drive確認＋購買課担当者への電話確認という複数手順が必要。これをAIで一発検索したい。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0" class="fi">
+<div style="padding:14px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">✅ Workspace内でできる範囲：90%</div>
+<div style="font-size:11px;color:#166534;line-height:1.7">
+NotebookLM + スプレッドシート + Gemini Appの組み合わせで、品番検索で履歴が即座に表示される仕組みが実現可能。
+</div>
+</div>
+<div style="padding:14px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px">⚠️ Gemini単体での課題</div>
+<div style="font-size:11px;color:#92400e;line-height:1.7">
+社内基幹システムに直接アクセス不可。情報を一元化する場所が必要。
+</div>
+</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--accent-l);color:var(--accent)">推奨アプローチ</span><span class="snm">NotebookLM＋スプレッドシートで価格情報を一元化</span></div>
+<div class="step-bd">価格関連の資料をNotebookLMに集約し、Workspace環境内に「社内価格情報AI」を構築します。</div>
+
+<div style="margin:10px 0;padding:12px 14px;background:var(--bg2);border-radius:var(--r);font-size:12px;line-height:1.7;color:var(--text)">
+<strong>段階的な進め方：</strong><br>
+<strong>STEP 1：</strong>過去の価格表PDF、価格改定通知メールをまとめて1箇所に保存<br>
+<strong>STEP 2：</strong>NotebookLMにこれらの資料をアップロード（最大50ファイル）<br>
+<strong>STEP 3：</strong>スプレッドシートで「価格マスタ」を作成（品番／品名／現在単価／最終改定日）<br>
+<strong>STEP 4：</strong>Gemini Appのチャット画面で「＋」ボタン→「NotebookLM」を選択し、作成したノートブックを参照しながら品番検索<br>
+<strong>STEP 5：</strong>月次更新ルールを定めて運用開始
+</div>
+
+<div class="nt n-ok"><span class="ni">✅</span><div>このアプローチは完全に既存環境内で実現でき、追加コストはゼロです。NotebookLMもBusiness Standardユーザーは利用可能です。</div></div>
+</div>
+</div></section>
+
+<!-- 課題③ 見積書作成 -->
+<section id="fu3" class="sec"><div class="c">
+<span class="sn" style="background:#26a69a">3</span><h2 class="st">課題③ 見積依頼書から見積書の自動作成</h2>
+
+<div style="margin:16px 0;padding:18px 20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;color:#26a69a;margin-bottom:6px">2班 ／ 営業チーム（追加候補）</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:8px;line-height:1.5">見積依頼書から必要事項を自動抽出し、社内見積書フォーマットに自動入力</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">
+客先名、品名、数量、単価、納期などを手動でフォーマットに転記している作業を自動化したい。担当者は価格確認のみに専念したい。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0" class="fi">
+<div style="padding:14px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">✅ Workspace内でできる範囲：70%</div>
+<div style="font-size:11px;color:#166534;line-height:1.7">
+GeminiでPDFやメールからの項目抽出 → Apps Scriptでスプレッドシートテンプレに自動入力する仕組みが構築可能。
+</div>
+</div>
+<div style="padding:14px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px">⚠️ 制約事項</div>
+<div style="font-size:11px;color:#92400e;line-height:1.7">
+基幹システム連携や手書きの見積依頼書には別途対応が必要。Excelフォーマットへの直接書き込みは制限あり。
+</div>
+</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--accent-l);color:var(--accent)">推奨アプローチ</span><span class="snm">Gemini + Apps Scriptで半自動の見積書作成フロー</span></div>
+<div class="step-bd">完全自動化はハードルが高いため、まずは「項目抽出 → 確認 → テンプレ入力」の半自動フローから始めます。</div>
+
+<div style="margin:10px 0;padding:12px 14px;background:var(--bg2);border-radius:var(--r);font-size:12px;line-height:1.7;color:var(--text)">
+<strong>具体的な流れ：</strong><br>
+1. 見積依頼書（PDF/メール）をGemini Chatにアップロード<br>
+2. 「客先名・品名・数量・単価・納期を抽出して」と指示<br>
+3. Geminiが構造化された情報を出力<br>
+4. 担当者が内容確認<br>
+5. Apps Scriptが社内見積書テンプレに自動入力（事前構築）<br>
+6. 担当者が最終価格を確認・調整して発行
+</div>
+
+<div style="padding:14px;background:#f0fdfa;border-radius:var(--r);border:1px solid #99f6e4;margin:10px 0;font-size:12px;color:#115e59;line-height:1.7">
+<strong>本格自動化を目指す場合の選択肢（参考）：</strong><br>
+完全自動化を目指す場合は、Power Automate（マイクロソフト）<sup style="font-size:9px">※4</sup>や、Zapier<sup style="font-size:9px">※5</sup>などの業務自動化ツール（月額制）の導入も視野に入ります。ただし、まずは既存環境で7割の自動化を達成してから判断するのが現実的です。
+</div>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※4 Power Automate：Microsoftが提供する業務自動化ツール。AIによる文書抽出機能（AI Builder）もあります。<br>※5 Zapier：海外の業務自動化サービス。様々なツールを連携できます。</div></div>
+</div>
+</div></section>
+
+<!-- 課題④ 案件管理 -->
+<section id="fu4" class="sec"><div class="c">
+<span class="sn" style="background:#26a69a">4</span><h2 class="st">課題④ 取引中案件の整理とアクション提案</h2>
+
+<div style="margin:16px 0;padding:18px 20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;color:#26a69a;margin-bottom:6px">2班 ／ 営業チーム（追加候補）</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:8px;line-height:1.5">案件を記録すると、次にやるべきアクションがAIから提案される仕組み</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">
+現在は紙やPC、頭の中など人によって管理方法がバラバラ。これを統一して、AIから次のアクション提案が得られる状態にしたい。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0" class="fi">
+<div style="padding:14px;background:var(--green-bg);border-radius:var(--rl);border:1px solid #bbf7d0">
+<div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:6px">✅ Workspace内でできる範囲：80%</div>
+<div style="font-size:11px;color:#166534;line-height:1.7">
+スプレッドシートで簡易CRM<sup style="font-size:9px">※6</sup>を構築 + Gemini Appでアクション提案。チーム共有も即座に可能。
+</div>
+</div>
+<div style="padding:14px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px">⚠️ 限界</div>
+<div style="font-size:11px;color:#92400e;line-height:1.7">
+大規模な営業組織や、複雑な案件パイプライン管理には機能不足。本格運用には専用CRMが必要。
+</div>
+</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--accent-l);color:var(--accent)">推奨アプローチ</span><span class="snm">スプレッドシート簡易CRM＋Gemini分析</span></div>
+<div class="step-bd">まずはWorkspace内で簡易的に始めて、本格的なCRMが必要になった段階で専用ツールを検討します。</div>
+
+<div style="margin:10px 0;padding:12px 14px;background:var(--bg2);border-radius:var(--r);font-size:12px;line-height:1.7;color:var(--text)">
+<strong>段階的な進め方：</strong><br>
+<strong>STEP 1：</strong>スプレッドシートで案件管理表を作成（案件名／顧客名／ステータス／次のアクション／期日）<br>
+<strong>STEP 2：</strong>チームメンバー全員で同じシートを共有<br>
+<strong>STEP 3：</strong>Gemini Appで「現在停滞している案件と、次にやるべきアクションを教えて」と質問<br>
+<strong>STEP 4：</strong>過去の成約案件のメール履歴（@Gmail）から成功パターンを抽出<br>
+<strong>STEP 5：</strong>運用が定着したら本格CRM導入を検討
+</div>
+
+<div class="nt n-i"><span class="ni">📘</span><div>※6 CRM：Customer Relationship Management（顧客関係管理）の略。顧客や案件情報を一元管理するシステム。代表例：Salesforce、HubSpot。</div></div>
+</div>
+</div></section>
+
+<!-- 課題⑤ 動画作成 -->
+<section id="fu5" class="sec"><div class="c">
+<span class="sn" style="background:#ef6c00">5</span><h2 class="st">課題⑤ 商品アピール用の動画作成</h2>
+
+<div style="margin:16px 0;padding:18px 20px;background:var(--bg2);border-radius:var(--rl)" class="fi">
+<div style="font-size:11px;font-weight:600;color:#ef6c00;margin-bottom:6px">3班 ／ 生産・購買チーム</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:8px;line-height:1.5">商品画像を使って販促動画を作成</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">
+YouTubeなどに掲載するプロモーション動画を作成したい。Premiere Proなどの編集ツールも使用想定。
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0" class="fi">
+<div style="padding:14px;background:var(--amber-bg);border-radius:var(--rl);border:1px solid #fde68a">
+<div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px">⚠️ Workspace内でできる範囲：30%</div>
+<div style="font-size:11px;color:#92400e;line-height:1.7">
+Google Vidsで簡易的なスライドベース動画は作成可能。ただし「YouTube参考動画レベル」の品質には届かない。
+</div>
+</div>
+<div style="padding:14px;background:var(--red-bg);border-radius:var(--rl);border:1px solid #fecaca">
+<div style="font-size:12px;font-weight:600;color:var(--red);margin-bottom:6px">❌ 本格的な動画には追加ツールが必要</div>
+<div style="font-size:11px;color:#7f1d1d;line-height:1.7">
+高品質なプロモ動画はRunway、Veo 3.1などの専門AIツール（月額制）が必要。
+</div>
+</div>
+</div>
+
+<div class="step fi">
+<div class="step-h"><span class="sb" style="background:var(--accent-l);color:var(--accent)">推奨アプローチ</span><span class="snm">段階的に動画AIを導入</span></div>
+<div class="step-bd">いきなり本格動画を目指さず、Workspace内で試せる範囲から始めます。</div>
+
+<div style="margin:10px 0;padding:12px 14px;background:var(--bg2);border-radius:var(--r);font-size:12px;line-height:1.7;color:var(--text)">
+<strong>段階的な進め方：</strong><br>
+<strong>STEP 1（Workspace内で完結）：</strong>Geminiで動画構成案・台本・絵コンテを作成<br>
+<strong>STEP 2（Workspace内で完結）：</strong>Google Vidsで簡易プロモ動画を試作（社内向け・SNS用）<br>
+<strong>STEP 3（追加ツール検討）：</strong>本格的なプロモが必要になったら Runway Gen-4.5（月15ドル〜）またはGoogle AI Pro（月19.99ドル〜）を検討<br>
+<strong>STEP 4：</strong>既存のPremiere Proで最終編集
+</div>
+
+<div class="nt n-w"><span class="ni">⚠️</span><div><strong>判断のポイント：</strong>「動画を内製したいかどうか」より、「年間どれくらいの動画本数を作るか」を先に確認しましょう。年間数本なら外注の方が安く済む場合もあります。</div></div>
+</div>
+</div></section>
+
+<!-- 優先順位 -->
+<section id="fu-step" class="sec"><div class="c">
+<span class="sn" style="background:var(--green)">→</span><h2 class="st">フォローアップMTGで取り組む優先順位</h2>
+<p class="sd">3回のフォローアップMTGをどう活用するか、効果と難易度のバランスから推奨順を整理しました。</p>
+
+<table style="width:100%;border-collapse:collapse;font-size:12px;margin:12px 0" class="fi">
+<thead>
+<tr style="background:var(--bg2)"><th style="padding:10px;text-align:left;border:1px solid var(--border);font-weight:600">優先度</th><th style="padding:10px;text-align:left;border:1px solid var(--border);font-weight:600">課題</th><th style="padding:10px;text-align:left;border:1px solid var(--border);font-weight:600">推奨理由</th><th style="padding:10px;text-align:left;border:1px solid var(--border);font-weight:600">必要工数</th></tr>
+</thead>
+<tbody>
+<tr><td style="padding:10px;border:1px solid var(--border);background:var(--green-bg);color:var(--green);font-weight:600">最優先</td><td style="padding:10px;border:1px solid var(--border)">②価格情報まとめ</td><td style="padding:10px;border:1px solid var(--border)">既存資料があれば最も早く導入可能。営業活動に直結し、効果が即座に見える。</td><td style="padding:10px;border:1px solid var(--border)">小</td></tr>
+<tr><td style="padding:10px;border:1px solid var(--border);background:var(--green-bg);color:var(--green);font-weight:600">優先</td><td style="padding:10px;border:1px solid var(--border)">①送り状/棚卸データ</td><td style="padding:10px;border:1px solid var(--border)">具体的なデータが揃っており、自動化効果が明確。Apps Scriptで完全自動化可能。</td><td style="padding:10px;border:1px solid var(--border)">中</td></tr>
+<tr><td style="padding:10px;border:1px solid var(--border);background:var(--blue-bg);color:var(--blue);font-weight:600">中期</td><td style="padding:10px;border:1px solid var(--border)">④案件管理</td><td style="padding:10px;border:1px solid var(--border)">まずは簡易スプレッドシートで始めて、運用定着後に本格CRMを検討。</td><td style="padding:10px;border:1px solid var(--border)">中</td></tr>
+<tr><td style="padding:10px;border:1px solid var(--border);background:var(--blue-bg);color:var(--blue);font-weight:600">中期</td><td style="padding:10px;border:1px solid var(--border)">③見積書作成</td><td style="padding:10px;border:1px solid var(--border)">半自動から始め、効果を見て本格自動化を判断。</td><td style="padding:10px;border:1px solid var(--border)">中〜大</td></tr>
+<tr><td style="padding:10px;border:1px solid var(--border);background:var(--amber-bg);color:var(--amber);font-weight:600">長期</td><td style="padding:10px;border:1px solid var(--border)">⑤動画作成</td><td style="padding:10px;border:1px solid var(--border)">本格運用には追加ツール導入が必要。動画本数の見込みを確認してから判断。</td><td style="padding:10px;border:1px solid var(--border)">大</td></tr>
+</tbody>
+</table>
+
+<div style="background:linear-gradient(135deg,var(--blue-bg),var(--accent-l));border-radius:var(--rl);padding:18px 20px;margin:20px 0;border:1px solid #bfdbfe" class="fi">
+<div style="font-size:14px;font-weight:600;color:var(--blue);margin-bottom:8px">📝 フォローアップMTG活用案</div>
+<div style="font-size:12px;color:#1e40af;line-height:1.9">
+<strong>第1回：</strong>研修内容のフォロー + 価格情報まとめ（課題②）の進め方<br>
+<strong>第2回：</strong>送り状/棚卸データ変換（課題①）の構築 + 案件管理（課題④）の方針<br>
+<strong>第3回：</strong>見積書作成（課題③）の方向性 + 動画作成（課題⑤）の判断材料整理<br><br>
+※ 御社のご都合や優先度に応じて、回数配分は柔軟に変更可能です。
 </div>
 </div>
 </div></section>
